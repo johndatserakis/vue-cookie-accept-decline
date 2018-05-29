@@ -5,6 +5,8 @@
 ### Install
 
 ```
+These aren't ready yet - soon though. Please check back. Download the sourcecode for now if you like.
+
 # npm
 npm i vue-cookie-accept-decline
 
