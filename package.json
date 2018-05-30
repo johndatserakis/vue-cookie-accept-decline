@@ -4,6 +4,13 @@
   "description": "Simple context-menu component built for Vue.",
   "author": "John Datserakis <johndatserakis@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/promosis/vue-cookie-accept-decline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/promosis/vue-cookie-accept-decline/issues"
+  },
   "main": "dist/vue-cookie-accept-decline.umd.js",
   "module": "dist/vue-cookie-accept-decline.esm.js",
   "unpkg": "dist/vue-cookie-accept-decline.min.js",
