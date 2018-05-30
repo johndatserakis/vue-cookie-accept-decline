@@ -125,11 +125,11 @@ export default {
 }
 </script>
 
-<style lang="scss">
-    $light-grey: #F6F6F6;
-    $green: #409438;
+<style lang="scss" scoped>
+    $light-grey: #EEEEEE;
+    $green: #34CB6E;
     $dark-green: darken($green, 15%);
-    $red: #F43D41;
+    $red: #F56C6C;
     $dark-red: darken($red, 15%);
     $white: #fff;
     $black: #333;
@@ -147,9 +147,9 @@ export default {
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        box-shadow: 0 -2px 2px 0 rgba($black, 0.09);
+        box-shadow: 0 -2px 2px 0 rgba($black, 0.02);
         font-size: 1rem;
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;
         line-height: 1.5;
 
         @media (min-width: 768px) {
