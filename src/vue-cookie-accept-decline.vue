@@ -131,9 +131,9 @@ export default {
 
 <style lang="scss" scoped>
     $light-grey: #EEEEEE;
-    $green: #34CB6E;
+    $green: #4caf50;
     $dark-green: darken($green, 10%);
-    $red: #F56C6C;
+    $red: #f44336;
     $dark-red: darken($red, 10%);
     $white: #fff;
     $black: #333;
