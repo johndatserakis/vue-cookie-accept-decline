@@ -8,6 +8,8 @@ Show a banner with text, a decline button, and an accept button on your page. Re
 
 [View on npm](https://www.npmjs.com/package/vue-cookie-accept-decline)
 
+[View on GitHub](https://github.com/promosis/vue-cookie-accept-decline)
+
 ### Install
 
 ```

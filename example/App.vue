@@ -19,7 +19,7 @@
         </div>
 
         <div class="info-link">
-            <a class="info-link__link" href="https://github.com/johndatserakis/vue-cookie-accept-decline">View on GitHub</a>
+            <a class="info-link__link" href="https://github.com/promosis/vue-cookie-accept-decline">View on GitHub</a>
         </div>
 
         <div class="info-link">
