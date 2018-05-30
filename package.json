@@ -11,6 +11,14 @@
   "bugs": {
     "url": "https://github.com/promosis/vue-cookie-accept-decline/issues"
   },
+  "keywords": [
+    "vue",
+    "gdpr",
+    "banner",
+    "accept",
+    "decline",
+    "cookie"
+  ],
   "main": "dist/vue-cookie-accept-decline.umd.js",
   "module": "dist/vue-cookie-accept-decline.esm.js",
   "unpkg": "dist/vue-cookie-accept-decline.min.js",
