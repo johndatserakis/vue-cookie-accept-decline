@@ -35,6 +35,12 @@ When the  decline or accept buttons are clicked, they will emit the events `clic
 ### Usage Example
 
 ```html
+import VueCookieAcceptDecline from 'vue-cookie-accept-decline'
+Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
+```
+
+
+```html
 <vue-cookie-accept-decline
     :debug="false"
     :position="'bottom'"
