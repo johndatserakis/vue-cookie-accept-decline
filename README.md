@@ -14,7 +14,7 @@ yarn add vue-cookie-accept-decline
 
 Or you can include it through the browser at the bottom of your page:
 
-`<script src="https://unpkg.com/file-upload-with-preview"></script>`
+`<script src="https://unpkg.com/vue-cookie-accept-decline"></script>`
 
 ### About
 
