@@ -1,10 +1,12 @@
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './example/main.js',
   output: {
     path: path.resolve(__dirname, './docs'),
+    // publicPath: (process.env.NODE_ENV === 'development') ? '/' : '/vue-cookie-accept-decline/',
     publicPath: (process.env.NODE_ENV === 'development') ? '/' : '/vue-cookie-accept-decline/',
     filename: 'build.js'
   },
@@ -66,10 +68,6 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
-      },
-      {
-          test: /\.html?$/,
-           loader: "file-loader?name=[name].[ext]"
       }
     ]
   },
@@ -88,7 +86,12 @@ module.exports = {
     hints: false
   },
   devtool: '#eval-source-map',
-  plugins: []
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'vue-cookie-accept-decline',
+      template: './example/index.html'
+    })
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {

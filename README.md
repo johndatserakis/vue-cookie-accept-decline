@@ -4,7 +4,9 @@ Show a banner with text, a decline button, and an accept button on your page. Re
 
 ### Demo
 
-[View Demo](https://promosis.github.io/vue-cookie-accept-decline/)
+[View demo](https://promosis.github.io/vue-cookie-accept-decline/)
+
+[View on npm](https://www.npmjs.com/package/vue-cookie-accept-decline)
 
 ### Install
 

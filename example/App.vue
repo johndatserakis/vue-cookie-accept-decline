@@ -23,7 +23,7 @@
         </div>
 
         <div class="info-link">
-            <a class="info-link__link" href="https://npm.com/vue-cookie-accept-decline">View on NPM</a>
+            <a class="info-link__link" href="https://www.npmjs.com/package/vue-cookie-accept-decline">View on NPM</a>
         </div>
 
         <button @click="removeCookie" class="clear-button">&times; &nbsp; Remove Cookie</button>
