@@ -1,6 +1,6 @@
 {
   "name": "vue-cookie-accept-decline",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple context-menu component built for Vue.",
   "author": "John Datserakis <johndatserakis@gmail.com>",
   "license": "MIT",
