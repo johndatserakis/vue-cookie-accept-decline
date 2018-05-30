@@ -6,7 +6,7 @@ module.exports = {
   entry: './example/main.js',
   output: {
     path: path.resolve(__dirname, './docs'),
-    publicPath: '/docs',
+    publicPath: 'vue-cookie-accept-decline/docs',
     filename: 'build.js'
   },
   module: {
@@ -86,7 +86,9 @@ module.exports = {
   },
   devtool: '#eval-source-map',
   plugins: [
-    new HtmlWebpackPlugin({title: 'vue-cookie-accept-decline'})
+    new HtmlWebpackPlugin({
+      title: 'vue-cookie-accept-decline'
+    })
   ]
 }
 

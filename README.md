@@ -2,6 +2,10 @@
 
 Show a banner with text, a decline button, and an accept button on your page. Remembers selection with using cookies. Emits an event with current selection on creation. Good for GDPR requirements.
 
+### Demo
+
+[View Demo](https://promosis.github.io/vue-cookie-accept-decline/)
+
 ### Install
 
 ```

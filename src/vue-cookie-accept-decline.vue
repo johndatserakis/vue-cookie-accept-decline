@@ -42,6 +42,7 @@ export default {
     },
     data () {
         return {
+            status: null,
             supportsLocalStorage: true,
             isOpen: false
         }
@@ -66,6 +67,7 @@ export default {
                 this.isOpen = true
             }
 
+            this.status = visitedType
             this.$emit('status', visitedType)
         },
         checkLocalStorageFunctionality () {
@@ -108,6 +110,7 @@ export default {
                 this.setCookieStatus('accept')
             }
 
+            this.status = 'accept'
             this.isOpen = false
             this.$emit('clickedAccept')
         },
@@ -116,6 +119,7 @@ export default {
                 this.setCookieStatus('decline')
             }
 
+            this.status = 'decline'
             this.isOpen = false
             this.$emit('clickedDecline')
         }
@@ -128,9 +132,9 @@ export default {
 <style lang="scss" scoped>
     $light-grey: #EEEEEE;
     $green: #34CB6E;
-    $dark-green: darken($green, 15%);
+    $dark-green: darken($green, 10%);
     $red: #F56C6C;
-    $dark-red: darken($red, 15%);
+    $dark-red: darken($red, 10%);
     $white: #fff;
     $black: #333;
     $transition: all 0.2s ease;
