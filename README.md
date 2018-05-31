@@ -44,7 +44,10 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 <vue-cookie-accept-decline
     :debug="false"
     :position="'bottom'"
+    :disableDecline="false"
     :transitionName="'slideFromBottom'"
+    :acceptText="'Got It!'"
+    :declineText="'Opt Out'"
     @status="cookieStatus"
     @clickedAccept="cookieClickedAccept"
     @clickedDecline="cookieClickedDecline">
@@ -59,9 +62,13 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 
 | prop           | type    | default         | possible values                     | description                                                          |
 |----------------|---------|-----------------|-------------------------------------|----------------------------------------------------------------------|
-| debug          | boolean | false           | true, false                         | If true, the cookie is never saved, only the events will be emitted. |
-| position       | string  | bottom          | bottom, top                         | Position of the banner                                               |
-| transitionName | string  | slideFromBottom | slideFromBottom, slideFromTop, fade | Banner animation type                                                |
+| debug          | boolean | false           | true, false                         | If true, the cookie is never saved, only the events will be emitted |
+| position       | string  | bottom          | bottom, top                         | Position of the banner   |
+| disableDecline | boolean | false           | true, false                         | If true, the 'opt out' button is not shown |
+| transitionName | string  | slideFromBottom | slideFromBottom, slideFromTop, fade | Banner animation type    |
+| acceptText        | string    | 'Got It!'      | string value                        | Text for the Accept button  |
+| declineText       | string    | 'Opt Out'      | string value                        | Text for the Decline button  |
+
 
 ### Events
 
