@@ -39,7 +39,6 @@ import VueCookieAcceptDecline from 'vue-cookie-accept-decline'
 Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 ```
 
-
 ```html
 <vue-cookie-accept-decline
     :debug="false"

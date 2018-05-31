@@ -1,7 +1,7 @@
 {
   "name": "vue-cookie-accept-decline",
   "version": "1.0.6",
-  "description": "Simple context-menu component built for Vue.",
+  "description": "Show a banner with text, a decline button, and an accept button on your page. Remembers selection using cookies. Emits an event with current selection on creation. Good for GDPR requirements.",
   "author": "John Datserakis <johndatserakis@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -28,7 +28,7 @@
   "scripts": {
     "watch": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "watch:vue-cli": "vue serve ./src/vue-cookie-accept-decline.vue",
-    "build": "rm -rf ./dist npm run build:unpkg & npm run build:es & npm run build:umd",
+    "build": "rm -rf ./dist npm run build:unpkg & npm run build:es & npm run build:umd & npm run build:unpkg",
     "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-cookie-accept-decline.umd.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-cookie-accept-decline.esm.js",
     "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-cookie-accept-decline.min.js",
