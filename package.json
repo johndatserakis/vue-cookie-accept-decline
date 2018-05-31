@@ -1,7 +1,7 @@
 {
   "name": "vue-cookie-accept-decline",
   "version": "1.0.6",
-  "description": "Show a banner with text, a decline button, and an accept button on your page. Remembers selection using cookies. Emits an event with current selection on creation. Good for GDPR requirements.",
+  "description": "Show a banner with text, a decline button, and an accept button on your page.",
   "author": "John Datserakis <johndatserakis@gmail.com>",
   "license": "MIT",
   "repository": {
