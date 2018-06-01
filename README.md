@@ -1,4 +1,4 @@
-![vue-cookie-accept-decline](https://thumbs.gfycat.com/AgileYearlyDuckling-max-14mb.gif)
+![vue-cookie-accept-decline](https://thumbs.gfycat.com/AgileYearlyDuckling-size_restricted.gif)
 
 # vue-cookie-accept-decline
 
