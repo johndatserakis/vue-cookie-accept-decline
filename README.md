@@ -1,3 +1,5 @@
+<p align="center"><a href="" target="_blank"><img style="max-width: 100%; display: block; max-height: 400px;" src="https://thumbs.gfycat.com/AgileYearlyDuckling-max-14mb.gif"></a></p>
+
 # vue-cookie-accept-decline
 
 Show a banner with text, a decline button, and an accept button on your page. Remembers selection using cookies. Emits an event with current selection on creation. Good for GDPR requirements.
