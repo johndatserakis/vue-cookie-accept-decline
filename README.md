@@ -1,4 +1,4 @@
-![vue-cookie-accept-decline](https://thumbs.gfycat.com/AgileYearlyDuckling-size_restricted.gif)
+<p align="center"><a href="" target="_blank"><img style="max-width: 100%; display: block; max-height: 300px;" src="https://thumbs.gfycat.com/AgileYearlyDuckling-size_restricted.gif"></a></p>
 
 # vue-cookie-accept-decline
 
