@@ -67,7 +67,7 @@ export default {
             return `cookie--${this.position}`
         }
     },
-    created () {
+    mounted () {
         this.checkLocalStorageFunctionality()
         this.init()
     },
@@ -139,8 +139,6 @@ export default {
             this.$emit('clickedDecline')
         }
     },
-    mounted () {
-    }
 }
 </script>
 
