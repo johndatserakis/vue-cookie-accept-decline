@@ -54,7 +54,7 @@ var component = {render: function(){var _vm=this;var _h=_vm.$createElement;var _
             return ("cookie--" + (this.position))
         }
     },
-    created: function created () {
+    mounted: function mounted () {
         this.checkLocalStorageFunctionality();
         this.init();
     },
@@ -126,8 +126,6 @@ var component = {render: function(){var _vm=this;var _h=_vm.$createElement;var _
             this.$emit('clickedDecline');
         }
     },
-    mounted: function mounted () {
-    }
 }
 
 // Import vue component
