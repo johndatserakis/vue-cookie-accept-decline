@@ -5,8 +5,16 @@
                 <slot class="cookie__content" name="message">{{ message }}</slot>
             </div>
             <div class="cookie__buttons">
-                <button v-if="disableDecline === false" @click="decline" class="cookie__buttons__button cookie__buttons__button--decline">{{ declineText }}</button>
-                <button @click="accept" class="cookie__buttons__button cookie__buttons__button--accept">{{ acceptText }}</button>
+                <button v-if="disableDecline === false" @click="decline" class="cookie__buttons__button cookie__buttons__button--decline">
+                    <slot name="declineButton" text="declineText">
+                        <span>Opt Out</span>
+                    </slot>
+                </button>
+                <button @click="accept" class="cookie__buttons__button cookie__buttons__button--accept">
+                    <slot name="acceptButton">
+                        <span>Got It!</span>
+                    </slot>
+                </button>
             </div>
         </div>
     </transition>
@@ -31,16 +39,6 @@ export default {
         disableDecline: {
             type: Boolean,
             default: false
-        },
-
-        declineText: {
-            type: String,
-            default: "Opt Out"
-        },
-
-        acceptText: {
-            type: String,
-            default: "Got It!"
         },
 
         // bottom, top
