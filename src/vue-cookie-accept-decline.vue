@@ -2,17 +2,19 @@
     <transition appear :name="transitionName">
         <div class="cookie" :class="containerPosition" v-if="isOpen">
             <div class="cookie__content">
-                <slot class="cookie__content" name="message">{{ message }}</slot>
+                <slot name="message" class="cookie__content">
+                    We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a>
+                </slot>
             </div>
             <div class="cookie__buttons">
                 <button v-if="disableDecline === false" @click="decline" class="cookie__buttons__button cookie__buttons__button--decline">
-                    <slot name="declineButton" text="declineText">
-                        <span>Opt Out</span>
+                    <slot name="declineContent">
+                        Opt Out
                     </slot>
                 </button>
                 <button @click="accept" class="cookie__buttons__button cookie__buttons__button--accept">
-                    <slot name="acceptButton">
-                        <span>Got It!</span>
+                    <slot name="acceptContent">
+                        Got It!
                     </slot>
                 </button>
             </div>
@@ -29,11 +31,6 @@ export default {
         debug: {
             type: Boolean,
             default: false
-        },
-
-        message: {
-            type: String,
-            default: 'We use cookies to ensure you get the best experience on our website.'
         },
 
         disableDecline: {
@@ -142,6 +139,7 @@ export default {
 
 <style lang="scss" scoped>
     $light-grey: #EEEEEE;
+    $grey: darken($light-grey, 5%);
     $green: #4caf50;
     $dark-green: darken($green, 10%);
     $red: #f44336;
@@ -162,7 +160,8 @@ export default {
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        box-shadow: 0 -2px 2px 0 rgba($black, 0.02);
+        box-shadow: 0 -4px 4px rgba($black, 0.04);
+        border-top: 1px solid $grey;
         font-size: 1rem;
         font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;
         line-height: 1.5;

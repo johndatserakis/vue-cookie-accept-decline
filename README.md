@@ -47,14 +47,23 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
     :position="'bottom'"
     :disableDecline="false"
     :transitionName="'slideFromBottom'"
-    :acceptText="'Got It!'"
-    :declineText="'Opt Out'"
     @status="cookieStatus"
     @clickedAccept="cookieClickedAccept"
     @clickedDecline="cookieClickedDecline">
+
+    <!-- Optional -->
     <div slot="message">
-        We use cookies to ensure you get the best experience on our website.
-        <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a>
+        We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a>
+    </div>
+
+    <!-- Optional -->
+    <div slot="declineContent">
+        Opt Out
+    </div>
+
+    <!-- Optional -->
+    <div slot="acceptContent">
+        Got It!
     </div>
 </vue-cookie-accept-decline>
 ```
@@ -79,9 +88,15 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 | clickedAccept  | none                      | Event will be emitted when accept is clicked on the banner.   |
 | clickedDecline | none                      | Event will be emitted when declined is clicked on the banner. |
 
-### Message Slot
+### Slots
 
-There is a slot for your own custom `message`, this is good for providing your own link of whatever type you want. If you don't use the slot, the default `message` will be: `We use cookies to ensure you get the best experience on our website.`.
+There are slots for your own custom `message`, `declineContent`, `acceptContent`, this is good for providing your own link or whatever HTML content you want in your message/buttons - like icons.
+
+| name          | default value                     |
+|----------------|---------------------------|---------------------------------------------------------------|
+| message         | We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a> |
+| declineContent  | Opt Out         |
+| acceptContent | Got It!          |
 
 ### SASS Structure
 

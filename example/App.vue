@@ -37,13 +37,23 @@
             :position="'bottom'"
             :disableDecline="false"
             :transitionName="'slideFromBottom'"
-            :acceptText="'Got It!'"
-            :declineText="'Opt Out'"
             @status="cookieStatus"
             @clickedAccept="cookieClickedAccept"
             @clickedDecline="cookieClickedDecline">
+
+            <!-- Optional -->
             <div slot="message">
                 We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a>
+            </div>
+
+            <!-- Optional -->
+            <div slot="declineContent">
+                Opt Out
+            </div>
+
+            <!-- Optional -->
+            <div slot="acceptContent">
+                Got It!
             </div>
         </vue-cookie-accept-decline>
 
