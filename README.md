@@ -76,8 +76,6 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 | position       | string  | bottom          | bottom, top                         | Position of the banner   |
 | disableDecline | boolean | false           | true, false                         | If true, the 'opt out' button is not shown |
 | transitionName | string  | slideFromBottom | slideFromBottom, slideFromTop, fade | Banner animation type    |
-| acceptText        | string    | 'Got It!'      | string value                        | Text for the Accept button  |
-| declineText       | string    | 'Opt Out'      | string value                        | Text for the Decline button  |
 
 
 ### Events
