@@ -90,11 +90,11 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 
 There are slots for your own custom `message`, `declineContent`, `acceptContent`, this is good for providing your own link or whatever HTML content you want in your message/buttons - like icons.
 
-| name          | default value                     |
-|----------------|---------------------------|---------------------------------------------------------------|
-| message         | We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a> |
-| declineContent  | Opt Out         |
-| acceptContent | Got It!          |
+| name           | default value |
+|----------------|--------------|
+| message        | We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a> |
+| declineContent | Opt Out |
+| acceptContent  | Got It! |
 
 ### SASS Structure
 
