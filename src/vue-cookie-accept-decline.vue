@@ -139,7 +139,7 @@ export default {
 
 <style lang="scss" scoped>
     $light-grey: #EEEEEE;
-    $grey: darken($light-grey, 5%);
+    $grey: darken($light-grey, 9%);
     $green: #4caf50;
     $dark-green: darken($green, 10%);
     $red: #f44336;
@@ -160,7 +160,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        box-shadow: 0 -4px 4px rgba($black, 0.04);
+        box-shadow: 0 -4px 4px rgba($black, 0.01);
         border-top: 1px solid $grey;
         font-size: 1rem;
         font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;
