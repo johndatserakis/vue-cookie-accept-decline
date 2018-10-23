@@ -1,23 +1,26 @@
 <template>
     <transition appear :name="transitionName">
-        <div class="cookie" :class="containerPosition" v-if="isOpen">
-            <div class="cookie__content">
-                <slot name="message" class="cookie__content">
+        <div class="cookie" :class="['cookie__' + type, 'cookie__' + type + '--' + position]" v-if="isOpen">
+
+            <div :class="'cookie__' + type + '__content'">
+                <slot name="message">
                     We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a>
                 </slot>
             </div>
-            <div class="cookie__buttons">
-                <button v-if="disableDecline === false" @click="decline" class="cookie__buttons__button cookie__buttons__button--decline">
+
+            <div :class="'cookie__' + type + '__buttons'">
+                <button v-if="disableDecline === false" @click="decline" :class="['cookie__' + type + '__buttons__button', 'cookie__' + type + '__buttons__button--decline']">
                     <slot name="declineContent">
                         Opt Out
                     </slot>
                 </button>
-                <button @click="accept" class="cookie__buttons__button cookie__buttons__button--accept">
+                <button @click="accept" :class="['cookie__' + type + '__buttons__button', 'cookie__' + type + '__buttons__button--accept']">
                     <slot name="acceptContent">
                         Got It!
                     </slot>
                 </button>
             </div>
+
         </div>
     </transition>
 </template>
@@ -38,10 +41,17 @@ export default {
             default: false
         },
 
-        // bottom, top
+        // floating: bottom-left, bottom-right, top-left, top-rigt
+        // bar:  bottom, top
         position: {
             type: String,
-            default: 'bottom'
+            default: 'bottom-left'
+        },
+
+        // floating, bar
+        type: {
+            type: String,
+            default: 'floating'
         },
 
         // slideFromBottom, slideFromTop, fade
@@ -60,6 +70,9 @@ export default {
     computed: {
         containerPosition () {
             return `cookie--${this.position}`
+        },
+        containerType () {
+            return `cookie--${this.type}`
         }
     },
     mounted () {
@@ -138,141 +151,297 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    $light-grey: #EEEEEE;
+    $lighter-grey: #eee;
+    $light-grey: #ddd;
     $grey: darken($light-grey, 9%);
     $green: #4caf50;
-    $dark-green: darken($green, 10%);
+    $dark-green: darken($green, 8%);
     $red: #f44336;
-    $dark-red: darken($red, 10%);
+    $dark-red: darken($red, 8%);
     $white: #fff;
+    $off-white: darken($white, 2%);
     $black: #333;
     $transition: all 0.2s ease;
 
+    // Bar
     .cookie {
-        position: fixed;
-        overflow: hidden;
-        box-sizing: border-box;
-        z-index: 9999;
-        width: 100%;
-        background: $light-grey;
-        padding: 20px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
-        box-shadow: 0 -4px 4px rgba($black, 0.01);
-        border-top: 1px solid $grey;
-        font-size: 1rem;
-        font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;
-        line-height: 1.5;
-
-        @media (min-width: 768px) {
-            flex-direction: row;
-        }
-
-        &--bottom {
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-
-        &--top {
-            top: 0;
-            left: 0;
-            right: 0;
-        }
-
-        &__content {
-            margin-right: 0;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-
-            @media (min-width: 768px) {
-                margin-right: 10px;
-                margin-bottom: 0;
-            }
-        }
-
-        &__buttons {
-            transition: $transition;
-            display: flex;
-            flex-direction: column;
+        &__bar {
+            position: fixed;
+            overflow: hidden;
+            box-sizing: border-box;
+            z-index: 9999;
             width: 100%;
+            background: $lighter-grey;
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            box-shadow: 0 -4px 4px rgba($grey, 0.05);
+            border-top: 1px solid $light-grey;
+            border-bottom: 1px solid $light-grey;
+            font-size: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;
+            line-height: 1.5;
 
             @media (min-width: 768px) {
                 flex-direction: row;
-                width: auto;
             }
 
-            &__button {
-                display: inline-block;
-                font-weight: 400;
-                text-align: center;
-                white-space: nowrap;
-                vertical-align: middle;
-                user-select: none;
-                border: 1px solid transparent;
-                padding: 0.375rem 0.75rem;
-                line-height: 1.5;
-                border-radius: 3px;
+            &--bottom {
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+
+            &--top {
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+
+            &__content {
+                margin-right: 0;
+                margin-bottom: 20px;
                 font-size: 0.9rem;
+                max-height: 103px;
+                overflow: scroll;
 
-                &:hover {
-                    cursor: pointer;
-                    text-decoration: none;
+                @media (min-width: 768px) {
+                    margin-right: 10px;
+                    margin-bottom: 0;
+                }
+            }
+
+            &__buttons {
+                transition: $transition;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+                @media (min-width: 768px) {
+                    flex-direction: row;
+                    width: auto;
                 }
 
-                &--accept {
-                    background: $green;
-                    color: $white;
+                &__button {
+                    display: inline-block;
+                    font-weight: 400;
+                    text-align: center;
+                    white-space: nowrap;
+                    vertical-align: middle;
+                    user-select: none;
+                    border: 1px solid transparent;
+                    padding: 0.375rem 0.75rem;
+                    line-height: 1.5;
+                    border-radius: 3px;
+                    font-size: 0.9rem;
 
                     &:hover {
-                        background: $dark-green;
-                    }
-                }
-
-                &--decline {
-                    background: $red;
-                    color: $white;
-                    margin-bottom: 10px;
-
-                    &:hover {
-                        background: $dark-red;
+                        cursor: pointer;
+                        text-decoration: none;
                     }
 
-                    @media (min-width: 768px) {
-                        margin-bottom: 0;
-                        margin-right: 10px;
+                    &--accept {
+                        background: $green;
+                        background: linear-gradient(lighten($green, 5%), $green);
+                        color: $white;
+
+                        &:hover {
+                            background: $dark-green;
+                        }
+                    }
+
+                    &--decline {
+                        background: $red;
+                        background: linear-gradient(lighten($red, 5%), $red);
+                        color: $white;
+                        margin-bottom: 10px;
+
+                        &:hover {
+                            background: $dark-red;
+                        }
+
+                        @media (min-width: 768px) {
+                            margin-bottom: 0;
+                            margin-right: 10px;
+                        }
                     }
                 }
             }
         }
     }
 
-    //Animations
-    .slideFromTop-enter, .slideFromTop-leave-to {
-        transform: translate(0px, -12.500em);
+    // Floating
+    .cookie {
+        &__floating {
+            position: fixed;
+            overflow: hidden;
+            box-sizing: border-box;
+            z-index: 9999;
+            width: 90%;
+            background: $off-white;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            box-shadow: 0 4px 8px rgba($grey, 0.3);
+            border: 1px solid $light-grey;
+            font-size: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;
+            line-height: 1.5;
+            border-radius: 6px;
+
+            @media (min-width: 768px) {
+                max-width: 300px;
+            }
+
+            // For now I think the best idea is to show the panel centered
+            // and on the bottom when on small screens
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+
+            @media (min-width: 768px) {
+                &--bottom-left {
+                    bottom: 20px;
+                    left: 20px;
+                    right: auto;
+                    margin: 0 0;
+                }
+            }
+
+            @media (min-width: 768px) {
+                &--bottom-right {
+                    bottom: 20px;
+                    right: 20px;
+                    left: auto;
+                    margin: 0 0;
+                }
+            }
+
+            @media (min-width: 768px) {
+                &--top-right {
+                    top: 20px;
+                    bottom: auto;
+                    right: 20px;
+                    left: auto;
+                    margin: 0 0;
+                }
+            }
+
+            @media (min-width: 768px) {
+                &--top-left {
+                    top: 20px;
+                    bottom: auto;
+                    right: auto;
+                    left: 20px;
+                    margin: 0 0;
+                }
+            }
+
+            &__content {
+                font-size: 0.95rem;
+                margin-bottom: 5px;
+                padding: 15px 20px;
+                max-height: 103px;
+                overflow: scroll;
+
+                @media (min-width: 768px) {
+                    margin-bottom: 10px;
+                }
+            }
+
+            &__buttons {
+                transition: $transition;
+                display: flex;
+                flex-direction: row;
+                height: 100%;
+                width: 100%;
+
+                &__button {
+                    background-color: $lighter-grey;
+                    font-weight: bold;
+                    font-size: 0.90rem;
+                    width: 100%;
+                    min-height: 40px;
+                    white-space: nowrap;
+                    user-select: none;
+                    border-bottom: 1px solid $light-grey;
+                    border-top: 1px solid $light-grey;
+                    border-left: none;
+                    border-right: none;
+                    padding: 0.375rem 0.75rem;
+
+                    &:first-child {
+                        border-right: 1px solid $light-grey;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: none;
+                    }
+
+                    &--accept {
+                        color: $green;
+
+                        &:hover {
+                            background: $dark-green;
+                            color: $white;
+                        }
+                    }
+
+                    &--decline {
+                        color: $red;
+
+                        &:hover {
+                            background: $dark-red;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    .slideFromTop-enter-to, .slideFromTop-leave {
-        transform: translate(0px, 0px);
-    }
 
+    // Animations
+
+    // slideFromBottom
     .slideFromBottom-enter, .slideFromBottom-leave-to {
-        transform: translate(0px, 12.500em);
+        transform: translate(0px, 10em);
     }
 
     .slideFromBottom-enter-to, .slideFromBottom-leave {
         transform: translate(0px, 0px);
     }
 
-    .slideFromBottom-enter-active,
-    .slideFromBottom-leave-active,
-    .slideFromTop-enter-active,
-    .slideFromTop-leave-active, {
-        transition: transform .4s ease-in;
+    .slideFromBottom-enter-active {
+        transition: transform .2s ease-out;
     }
 
+    .slideFromBottom-leave-active {
+        transition: transform .2s ease-in;
+    }
+
+    // slideFromTop
+    .slideFromTop-enter, .slideFromTop-leave-to {
+        transform: translate(0px, -10em);
+    }
+
+    .slideFromTop-enter-to, .slideFromTop-leave {
+        transform: translate(0px, 0px);
+    }
+
+    .slideFromTop-enter-active {
+        transition: transform .2s ease-out;
+    }
+
+    .slideFromTop-leave-active {
+        transition: transform .2s ease-in;
+    }
+
+    // fade
     .fade-enter-active, .fade-leave-active {
         transition: opacity .5s
     }

@@ -2,7 +2,7 @@
 
 # vue-cookie-accept-decline
 
-Show a banner with text, a decline button, and an accept button on your page. Remembers selection using cookies. Emits an event with current selection on creation. Good for GDPR requirements.
+Show a banner with text, a decline button, and an accept button on your page. Remembers selection using cookies. Emits an event with current selection on creation. Good for GDPR requirements or telling your users something that they can act on and then not see again.
 
 ### Demo
 
@@ -44,7 +44,8 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 ```html
 <vue-cookie-accept-decline
     :debug="false"
-    :position="'bottom'"
+    :position="'bottom-left'"
+    :type="'floating'"
     :disableDecline="false"
     :transitionName="'slideFromBottom'"
     @status="cookieStatus"
@@ -58,12 +59,12 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 
     <!-- Optional -->
     <div slot="declineContent">
-        Opt Out
+       OPT OUT
     </div>
 
     <!-- Optional -->
     <div slot="acceptContent">
-        Got It!
+        GOT IT!
     </div>
 </vue-cookie-accept-decline>
 ```
@@ -73,7 +74,8 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 | prop           | type    | default         | possible values                     | description                                                          |
 |----------------|---------|-----------------|-------------------------------------|----------------------------------------------------------------------|
 | debug          | boolean | false           | true, false                         | If true, the cookie is never saved, only the events will be emitted |
-| position       | string  | bottom          | bottom, top                         | Position of the banner   |
+| position       | string  | bottom          | For floating: bottom-left, bottom-right, top-left, top-right -- For bar: bottom, top | Position of the banner   |
+| type           | string  | floating        | floating, bar                       | Type of banner   |
 | disableDecline | boolean | false           | true, false                         | If true, the 'opt out' button is not shown |
 | transitionName | string  | slideFromBottom | slideFromBottom, slideFromTop, fade | Banner animation type    |
 
@@ -99,22 +101,57 @@ There are slots for your own custom `message`, `declineContent`, `acceptContent`
 ### SASS Structure
 
 ```sass
+// Bar style
 .cookie {
-    &--bottom {
-    }
+    &__bar {
+        &--bottom {
+        }
 
-    &--top {
-    }
+        &--top {
+        }
 
-    &__content {
-    }
+        &__content {
+        }
 
-    &__buttons {
-        &__button {
-            &--accept {
+        &__buttons {
+
+            &__button {
+                &--accept {
+                }
+
+                &--decline {
+                }
             }
+        }
+    }
+}
 
-            &--decline {
+// Floating style
+.cookie {
+    &__floating {
+        &--bottom-left {
+        }
+
+        &--bottom-right {
+        }
+
+        &--top-right {
+        }
+
+        &--top-left {
+        }
+
+        &__content {
+        }
+
+        &__buttons {
+
+            &__button {
+                &--accept {
+                }
+
+                &--decline {
+                }
             }
         }
     }

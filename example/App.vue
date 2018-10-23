@@ -8,33 +8,59 @@
             </svg>
         </a>
 
-        <img src="https://s3.amazonaws.com/promosis-com/promosis-logo-color-with-tag.png" alt="Promosis Logo" class="program-image">
-
-        <div class="program-name">
-            vue-cookie-accept-decline
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <h3><strong>vue-cookie-accept-decline</strong></h3>
+                </div>
+            </div>
         </div>
 
-        <div class="install-text">
-            npm i vue-cookie-accept-decline
+        <div class="container pt-3 pb-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <span class="badge badge-primary mb-1">install</span>
+                    <div class="code-text">npm i vue-cookie-accept-decline</div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="list-group">
+                      <a href="https://github.com/promosis/vue-cookie-accept-decline" class="list-group-item list-group-item-action" target="_blank">View on GitHub</a>
+                      <a href="https://www.npmjs.com/package/vue-cookie-accept-decline" class="list-group-item list-group-item-action" target="_blank">View on NPM</a>
+                      <a href="https://promosis.com" class="list-group-item list-group-item-action list-group-item-success" target="_blank">Visit Promosis.com</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="info-link">
-            <a class="info-link__link" href="https://github.com/promosis/vue-cookie-accept-decline">View on GitHub</a>
+        <div class="container py-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <hr>
+                </div>
+            </div>
         </div>
 
-        <div class="info-link">
-            <a class="info-link__link" href="https://www.npmjs.com/package/vue-cookie-accept-decline">View on NPM</a>
-        </div>
+        <div class="container py-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <button @click="removeCookie" class="btn btn-primary btn-block mb-4">&times; &nbsp; Remove Browser Cookie</button>
 
-        <button @click="removeCookie" class="clear-button">&times; &nbsp; Remove Cookie</button>
 
-        <div v-if="status" class="instructions-text">
-            Status: {{status}}
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="code-text">
+                        Status: <strong>{{statusText}}</strong>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <vue-cookie-accept-decline
             :debug="false"
-            :position="'bottom'"
+            :position="'bottom-left'"
+            :type="'floating'"
             :disableDecline="false"
             :transitionName="'slideFromBottom'"
             @status="cookieStatus"
@@ -48,12 +74,12 @@
 
             <!-- Optional -->
             <div slot="declineContent">
-                Opt Out
+                OPT OUT
             </div>
 
             <!-- Optional -->
             <div slot="acceptContent">
-                Got It!
+                GOT IT!
             </div>
         </vue-cookie-accept-decline>
 
@@ -87,122 +113,59 @@
                 localStorage.removeItem('vue-cookie-accept-decline')
                 this.status = 'Cookie removed, refresh the page.'
             }
+        },
+        computed: {
+            statusText () {
+                return this.status || 'No cookie set'
+            }
         }
     }
 </script>
 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+
+    html {
+        width: 100%;
+        font-size: 18px;
+        color: #333;
+    }
+
     body {
         margin: 0;
         height: 100%;
         height: 100vh;
         width: 100%;
-        font-family: Verdana, Helvetica, Arial, sans-serif;
+        font-family: 'Noto Sans', sans-serif;
     }
 
     #app {
         height: 100%;
         height: 100vh;
         width: 100%;
-        background-color: #fff;
         line-height: 1.5;
     }
 
-    .program-image {
-        max-height: 65px;
-        margin: 40px auto 40px;
-        display: block;
-        max-width: 100%;
-    }
-
-    .program-name {
+    .code-text {
+        background: #eee;
+        border: 1px solid #ddd;
+        padding: 10px 20px;
+        border-radius: 4px;
+        margin-bottom: 20px;
         text-align: center;
-        font-size: 1.2rem;
-        margin: 0 0 40px;
-        font-weight: bold;
+
+
     }
 
     @media (min-width: 992px) {
-        .program-name {
-            font-size: 2.0rem;
+        .code-text {
+            margin-bottom: 0;
         }
     }
 
-    .install-text {
-        text-align: center;
-        font-size: 0.9rem;
-        margin: 0 auto 40px;
-        background: #eee;
-        padding: 10px 20px;
-        border-radius: 6px;
-        width: 275px;
-        font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-    }
-
-    .info-link {
-        text-align: center;
-        margin-bottom: 5px;
-        text-decoration: none;
-        color: #56A6EF;
-    }
-
-    .info-link__link {
-        text-decoration: none;
-        color: #56A6EF;
-    }
-
-    .info-link__link:hover {
-        color: #2f4265;
-    }
-
-    .instructions-text {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .clear-button {
-        display: block;
-        margin: 40px auto 20px;
-        background: #54AD58;
-        padding: 10px 20px;
-        border-radius: 4px;
-        font-size: 1rem;
-        color: #fff;
-    }
-
-    .clear-button:hover {
-        background: #289c55;
-        cursor: pointer;
-    }
-
-    .item-wrapper {
-        width: 275px;
-        background: #f6f6f6;
-        display: flex;
-        flex-direction: column;
-        margin: 40px auto 0;
-        padding: 40px;
-    }
-
-    .item-wrapper__item {
-        font-size: 1.2rem;
-        padding: 10px;
-        background: #e4e4e4;
-        margin-bottom: 10px;
-        text-align: center;
-        border-radius: 4px;
-    }
-
-    .item-wrapper__item:hover {
-        background: #56A6EF;
-        color: #fff;
-        cursor: pointer;
-    }
-
-    .item-wrapper__item:active {
-        background: #476398;
-        color: #fff;
-        cursor: pointer;
+    .btn {
+        text-transform: uppercase;
+        font-weight: bold;
     }
 
     .github-corner:hover .octo-arm {
