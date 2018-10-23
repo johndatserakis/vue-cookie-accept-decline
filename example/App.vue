@@ -8,6 +8,16 @@
             </svg>
         </a>
 
+        <div class="container pt-4 pb-1">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a href="https://www.www.promosis.com">
+                        <img src="https://s3.amazonaws.com/promosis-com/promosis-logo-color-with-tag.png" alt="Promosis Logo" class="img-fluid promosis-image" target="_blank">
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <div class="container py-4">
             <div class="row justify-content-center">
                 <div class="col-lg-12 text-center">
@@ -27,7 +37,7 @@
                     <div class="list-group">
                       <a href="https://github.com/promosis/vue-cookie-accept-decline" class="list-group-item list-group-item-action" target="_blank">View on GitHub</a>
                       <a href="https://www.npmjs.com/package/vue-cookie-accept-decline" class="list-group-item list-group-item-action" target="_blank">View on NPM</a>
-                      <a href="https://promosis.com" class="list-group-item list-group-item-action list-group-item-success" target="_blank">Visit Promosis.com</a>
+                      <a href="https://www.promosis.com" class="list-group-item list-group-item-action list-group-item-success" target="_blank">Visit Promosis.com</a>
                     </div>
                 </div>
             </div>
@@ -58,6 +68,8 @@
         </div>
 
         <vue-cookie-accept-decline
+            :ref="'myPanel1'"
+            :elementId="'myPanel1'"
             :debug="false"
             :position="'bottom-left'"
             :type="'floating'"
@@ -65,7 +77,8 @@
             :transitionName="'slideFromBottom'"
             @status="cookieStatus"
             @clickedAccept="cookieClickedAccept"
-            @clickedDecline="cookieClickedDecline">
+            @clickedDecline="cookieClickedDecline"
+            @removedCookie="cookieRemovedCookie">
 
             <!-- Optional -->
             <div slot="message">
@@ -107,11 +120,15 @@
                 console.log('here in decline')
                 this.status = 'decline'
             },
+            cookieRemovedCookie () {
+                console.log('here in cookieRemoved')
+                this.status = null
+                this.$refs.myPanel1.init()
+            },
 
             removeCookie () {
                 console.log('Cookie removed')
-                localStorage.removeItem('vue-cookie-accept-decline')
-                this.status = 'Cookie removed, refresh the page.'
+                this.$refs.myPanel1.removeCookie()
             }
         },
         computed: {
@@ -144,6 +161,12 @@
         height: 100vh;
         width: 100%;
         line-height: 1.5;
+    }
+
+    .promosis-image {
+        max-height: 60px;
+        display: block;
+        margin: 0 auto;
     }
 
     .code-text {

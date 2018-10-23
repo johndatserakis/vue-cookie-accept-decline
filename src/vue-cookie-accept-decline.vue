@@ -1,6 +1,6 @@
 <template>
     <transition appear :name="transitionName">
-        <div class="cookie" :class="['cookie__' + type, 'cookie__' + type + '--' + position]" v-if="isOpen">
+        <div class="cookie" :class="['cookie__' + type, 'cookie__' + type + '--' + position]" v-if="isOpen" :id="elementId">
 
             <div :class="'cookie__' + type + '__content'">
                 <slot name="message">
@@ -31,6 +31,11 @@ import * as tinyCookie from 'tiny-cookie'
 export default {
     name: 'vue-cookie-accept-decline',
     props: {
+        elementId: {
+            type: String,
+            required: true
+        },
+
         debug: {
             type: Boolean,
             default: false
@@ -107,25 +112,25 @@ export default {
         setCookieStatus (type) {
             if (this.supportsLocalStorage) {
                 if (type === 'accept') {
-                    localStorage.setItem('vue-cookie-accept-decline', 'accept')
+                    localStorage.setItem(`vue-cookie-accept-decline-${this.elementId}`, 'accept')
                 }
                 if (type === 'decline') {
-                    localStorage.setItem('vue-cookie-accept-decline', 'decline')
+                    localStorage.setItem(`vue-cookie-accept-decline-${this.elementId}`, 'decline')
                 }
             } else {
                 if (type === 'accept') {
-                    tinyCookie.set('vue-cookie-accept-decline', 'accept')
+                    tinyCookie.set(`vue-cookie-accept-decline-${this.elementId}`, 'accept')
                 }
                 if (type === 'decline') {
-                    tinyCookie.set('vue-cookie-accept-decline', 'decline')
+                    tinyCookie.set(`vue-cookie-accept-decline-${this.elementId}`, 'decline')
                 }
             }
         },
         getCookieStatus () {
             if (this.supportsLocalStorage) {
-                return localStorage.getItem('vue-cookie-accept-decline')
+                return localStorage.getItem(`vue-cookie-accept-decline-${this.elementId}`)
             } else {
-                return tinyCookie.get('vue-cookie-accept-decline')
+                return tinyCookie.get(`vue-cookie-accept-decline-${this.elementId}`)
             }
         },
         accept () {
@@ -145,6 +150,11 @@ export default {
             this.status = 'decline'
             this.isOpen = false
             this.$emit('clickedDecline')
+        },
+        removeCookie () {
+            localStorage.removeItem(`vue-cookie-accept-decline-${this.elementId}`)
+            this.status = null
+            this.$emit('removedCookie')
         }
     },
 }
@@ -404,9 +414,7 @@ export default {
         }
     }
 
-
     // Animations
-
     // slideFromBottom
     .slideFromBottom-enter, .slideFromBottom-leave-to {
         transform: translate(0px, 10em);
