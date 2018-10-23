@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 3.0.1 (2018-10-23)
+
+- Added Codesandbox example. Updated readme.
+
 ## 3.0.0 (2018-10-23)
 
 - Added new default display option of `floating`.
