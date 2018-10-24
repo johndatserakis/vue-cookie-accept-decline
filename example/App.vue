@@ -11,7 +11,7 @@
         <div class="container pt-4 pb-1">
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="https://www.www.promosis.com">
+                    <a href="https://www.promosis.com">
                         <img src="https://s3.amazonaws.com/promosis-com/promosis-logo-color-with-tag.png" alt="Promosis Logo" class="img-fluid promosis-image" target="_blank">
                     </a>
                 </div>
