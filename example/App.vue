@@ -53,13 +53,13 @@
 
         <div class="container py-3">
             <div class="row justify-content-center">
-                <div class="col-lg-4">
+                <div class="col-xl-4">
                     <button @click="removeCookie" class="btn btn-primary btn-block mb-4">&times; &nbsp; Remove Browser Cookie</button>
 
 
                 </div>
 
-                <div class="col-lg-4">
+                <div class="col-xl-4">
                     <div class="code-text">
                         Status: <strong>{{statusText}}</strong>
                     </div>

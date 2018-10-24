@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 3.0.2 (2018-10-24)
+
+- Fixed button bug on some older iPads.
+
 ## 3.0.1 (2018-10-23)
 
 - Added Codesandbox example. Updated readme.

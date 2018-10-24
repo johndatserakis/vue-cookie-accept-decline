@@ -366,8 +366,9 @@ export default {
                 transition: $transition;
                 display: flex;
                 flex-direction: row;
-                height: 100%;
+                height: auto;
                 width: 100%;
+
 
                 &__button {
                     background-color: $lighter-grey;

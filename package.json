@@ -1,6 +1,6 @@
 {
   "name": "vue-cookie-accept-decline",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Show a banner with text, a decline button, and an accept button on your page.",
   "author": "John Datserakis <johndatserakis@gmail.com>",
   "license": "MIT",
@@ -36,10 +36,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "@vue/test-utils": "^1.0.0-beta.25",
     "tiny-cookie": "^2.1.2"
   },
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.25",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
