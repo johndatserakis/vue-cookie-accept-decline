@@ -51,10 +51,10 @@ Each instance of the component requires the prop of `elementId` - this is to all
 ### Usage Example
 
 ```html
-<!-- css import for when you want to import into your css file/files  -->
+<!-- css import for when you want to import the component css into your css file/files  -->
 import /path/to/node_modules/vue-cookie-accept-decline.css
 
-<!-- css import for when you're importing directly in your js  -->
+<!-- css import for when you're importing the css directly in your js  -->
 import 'vue-cookie-accept-decline/dist/vue-cookie-accept-decline.css'
 
 import VueCookieAcceptDecline from 'vue-cookie-accept-decline'
