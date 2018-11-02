@@ -30,9 +30,10 @@ npm i vue-cookie-accept-decline
 yarn add vue-cookie-accept-decline
 ```
 
-Or you can include it through the browser at the bottom of your page:
+Or you can include it through the browser at the bottom of your page along with the css:
 
-`<script src="https://unpkg.com/vue-cookie-accept-decline"></script>`
+`<script src="https://unpkg.com/vue-cookie-accept-decline/dist/vue-cookie-accept-decline.min.js"></script>`
+`<link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-cookie-accept-decline/dist/vue-cookie-accept-decline.css">`
 
 ### About
 
@@ -47,6 +48,12 @@ Each instance of the component requires the prop of `elementId` - this is to all
 ### Usage Example
 
 ```html
+<!-- css import for when you want to import into your css file/files  -->
+import /path/to/node_modules/vue-cookie-accept-decline.css
+
+<!-- css import for when you're importing directly in your js  -->
+import 'vue-cookie-accept-decline/dist/vue-cookie-accept-decline.css'
+
 import VueCookieAcceptDecline from 'vue-cookie-accept-decline'
 Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 ```

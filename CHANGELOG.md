@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 4.0.0 (2018-11-02)
+
+- Adjusted build output - there will now be an additional `css` file that needs to be imported along with the `js`. This allows the `css` to be handled nicely by webpack or your app's build system.
+
 ## 3.0.2 (2018-10-24)
 
 - Fixed button bug on some older iPads.
