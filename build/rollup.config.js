@@ -27,8 +27,6 @@ const config = {
     external: ['tiny-cookie']
 };
 
-config.plugins.push(uglify());
-
 // Only minify browser (iife) version
 if (argv.format === 'iife') {
     config.plugins.push(uglify());

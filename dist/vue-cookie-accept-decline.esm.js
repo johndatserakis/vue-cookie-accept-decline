@@ -1,1 +1,306 @@
-function __vue_normalize__(e,t,o,i,n,c,s,_){var a=("function"==typeof o?o.options:o)||{};return a.__file="/Users/johndatserakis/Documents/Code/vue-cookie-accept-decline/src/vue-cookie-accept-decline.vue",a.render||(a.render=e.render,a.staticRenderFns=e.staticRenderFns,a._compiled=!0,n&&(a.functional=!0)),a._scopeId=i,a}function install(e){install.installed||(install.installed=!0,e.component("VueCookieAcceptDecline",component))}import{set,get}from"tiny-cookie";var script={name:"vue-cookie-accept-decline",props:{elementId:{type:String,required:!0},debug:{type:Boolean,default:!1},disableDecline:{type:Boolean,default:!1},position:{type:String,default:"bottom-left"},type:{type:String,default:"floating"},transitionName:{type:String,default:"slideFromBottom"}},data:function(){return{status:null,supportsLocalStorage:!0,isOpen:!1}},computed:{containerPosition:function(){return"cookie--"+this.position},containerType:function(){return"cookie--"+this.type}},mounted:function(){this.checkLocalStorageFunctionality(),this.init()},methods:{init:function(){var e=this.getCookieStatus();!e||"accept"!==e&&"decline"!==e||(this.isOpen=!1),e||(this.isOpen=!0),this.status=e,this.$emit("status",e)},checkLocalStorageFunctionality:function(){try{var e="__vue-cookie-accept-decline-check-localStorage";window.localStorage.setItem(e,e),window.localStorage.removeItem(e)}catch(e){console.error("Local storage is not supported, falling back to cookie use"),this.supportsLocalStorage=!1}},setCookieStatus:function(e){this.supportsLocalStorage?("accept"===e&&localStorage.setItem("vue-cookie-accept-decline-"+this.elementId,"accept"),"decline"===e&&localStorage.setItem("vue-cookie-accept-decline-"+this.elementId,"decline")):("accept"===e&&set("vue-cookie-accept-decline-"+this.elementId,"accept"),"decline"===e&&set("vue-cookie-accept-decline-"+this.elementId,"decline"))},getCookieStatus:function(){return this.supportsLocalStorage?localStorage.getItem("vue-cookie-accept-decline-"+this.elementId):get("vue-cookie-accept-decline-"+this.elementId)},accept:function(){this.debug||this.setCookieStatus("accept"),this.status="accept",this.isOpen=!1,this.$emit("clickedAccept")},decline:function(){this.debug||this.setCookieStatus("decline"),this.status="decline",this.isOpen=!1,this.$emit("clickedDecline")},removeCookie:function(){localStorage.removeItem("vue-cookie-accept-decline-"+this.elementId),this.status=null,this.$emit("removedCookie")}}},__vue_script__=script,__vue_render__=function(){var e=this,t=e.$createElement,o=e._self._c||t;return o("transition",{attrs:{appear:"",name:e.transitionName}},[e.isOpen?o("div",{staticClass:"cookie",class:["cookie__"+e.type,"cookie__"+e.type+"--"+e.position],attrs:{id:e.elementId}},[o("div",{class:"cookie__"+e.type+"__content"},[e._t("message",[e._v("\n                We use cookies to ensure you get the best experience on our website. "),o("a",{attrs:{href:"https://cookiesandyou.com/",target:"_blank"}},[e._v("Learn More...")])])],2),e._v(" "),o("div",{class:"cookie__"+e.type+"__buttons"},[!1===e.disableDecline?o("button",{class:["cookie__"+e.type+"__buttons__button","cookie__"+e.type+"__buttons__button--decline"],on:{click:e.decline}},[e._t("declineContent",[e._v("\n                    Opt Out\n                ")])],2):e._e(),e._v(" "),o("button",{class:["cookie__"+e.type+"__buttons__button","cookie__"+e.type+"__buttons__button--accept"],on:{click:e.accept}},[e._t("acceptContent",[e._v("\n                    Got It!\n                ")])],2)])]):e._e()])},__vue_staticRenderFns__=[];__vue_render__._withStripped=!0;var __vue_inject_styles__=void 0,__vue_scope_id__="data-v-30d19797",__vue_module_identifier__=void 0,__vue_is_functional_template__=!1,component=__vue_normalize__({render:__vue_render__,staticRenderFns:__vue_staticRenderFns__},__vue_inject_styles__,__vue_script__,__vue_scope_id__,__vue_is_functional_template__,__vue_module_identifier__,void 0,void 0),plugin={install:install},GlobalVue=null;"undefined"!=typeof window?GlobalVue=window.Vue:"undefined"!=typeof global&&(GlobalVue=global.Vue),GlobalVue&&GlobalVue.use(plugin);export default component;export{install};
+import { set, get } from 'tiny-cookie';
+
+//
+
+var script = {
+    name: 'vue-cookie-accept-decline',
+    props: {
+        elementId: {
+            type: String,
+            required: true
+        },
+
+        debug: {
+            type: Boolean,
+            default: false
+        },
+
+        disableDecline: {
+            type: Boolean,
+            default: false
+        },
+
+        // floating: bottom-left, bottom-right, top-left, top-rigt
+        // bar:  bottom, top
+        position: {
+            type: String,
+            default: 'bottom-left'
+        },
+
+        // floating, bar
+        type: {
+            type: String,
+            default: 'floating'
+        },
+
+        // slideFromBottom, slideFromTop, fade
+        transitionName: {
+            type: String,
+            default: 'slideFromBottom'
+        }
+    },
+    data: function data () {
+        return {
+            status: null,
+            supportsLocalStorage: true,
+            isOpen: false
+        }
+    },
+    computed: {
+        containerPosition: function containerPosition () {
+            return ("cookie--" + (this.position))
+        },
+        containerType: function containerType () {
+            return ("cookie--" + (this.type))
+        }
+    },
+    mounted: function mounted () {
+        this.checkLocalStorageFunctionality();
+        this.init();
+    },
+    methods: {
+        init: function init () {
+            var visitedType = this.getCookieStatus();
+            if (visitedType && (visitedType === 'accept' || visitedType === 'decline')) {
+                this.isOpen = false;
+            }
+
+            if (!visitedType) {
+                this.isOpen = true;
+            }
+
+            this.status = visitedType;
+            this.$emit('status', visitedType);
+        },
+        checkLocalStorageFunctionality: function checkLocalStorageFunctionality () {
+            // Check for availability of localStorage
+            try {
+                var test = '__vue-cookie-accept-decline-check-localStorage';
+                window.localStorage.setItem(test, test);
+                window.localStorage.removeItem(test);
+            } catch (e) {
+                console.error('Local storage is not supported, falling back to cookie use');
+                this.supportsLocalStorage = false;
+            }
+        },
+        setCookieStatus: function setCookieStatus (type) {
+            if (this.supportsLocalStorage) {
+                if (type === 'accept') {
+                    localStorage.setItem(("vue-cookie-accept-decline-" + (this.elementId)), 'accept');
+                }
+                if (type === 'decline') {
+                    localStorage.setItem(("vue-cookie-accept-decline-" + (this.elementId)), 'decline');
+                }
+            } else {
+                if (type === 'accept') {
+                    set(("vue-cookie-accept-decline-" + (this.elementId)), 'accept');
+                }
+                if (type === 'decline') {
+                    set(("vue-cookie-accept-decline-" + (this.elementId)), 'decline');
+                }
+            }
+        },
+        getCookieStatus: function getCookieStatus () {
+            if (this.supportsLocalStorage) {
+                return localStorage.getItem(("vue-cookie-accept-decline-" + (this.elementId)))
+            } else {
+                return get(("vue-cookie-accept-decline-" + (this.elementId)))
+            }
+        },
+        accept: function accept () {
+            if (!this.debug) {
+                this.setCookieStatus('accept');
+            }
+
+            this.status = 'accept';
+            this.isOpen = false;
+            this.$emit('clickedAccept');
+        },
+        decline: function decline () {
+            if (!this.debug) {
+                this.setCookieStatus('decline');
+            }
+
+            this.status = 'decline';
+            this.isOpen = false;
+            this.$emit('clickedDecline');
+        },
+        removeCookie: function removeCookie () {
+            localStorage.removeItem(("vue-cookie-accept-decline-" + (this.elementId)));
+            this.status = null;
+            this.$emit('removedCookie');
+        }
+    },
+}
+
+/* script */
+            var __vue_script__ = script;
+/* template */
+var __vue_render__ = function() {
+  var _vm = this;
+  var _h = _vm.$createElement;
+  var _c = _vm._self._c || _h;
+  return _c("transition", { attrs: { appear: "", name: _vm.transitionName } }, [
+    _vm.isOpen
+      ? _c(
+          "div",
+          {
+            staticClass: "cookie",
+            class: [
+              "cookie__" + _vm.type,
+              "cookie__" + _vm.type + "--" + _vm.position
+            ],
+            attrs: { id: _vm.elementId }
+          },
+          [
+            _c(
+              "div",
+              { class: "cookie__" + _vm.type + "__content" },
+              [
+                _vm._t("message", [
+                  _vm._v(
+                    "\n                We use cookies to ensure you get the best experience on our website. "
+                  ),
+                  _c(
+                    "a",
+                    {
+                      attrs: {
+                        href: "https://cookiesandyou.com/",
+                        target: "_blank"
+                      }
+                    },
+                    [_vm._v("Learn More...")]
+                  )
+                ])
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _c("div", { class: "cookie__" + _vm.type + "__buttons" }, [
+              _vm.disableDecline === false
+                ? _c(
+                    "button",
+                    {
+                      class: [
+                        "cookie__" + _vm.type + "__buttons__button",
+                        "cookie__" + _vm.type + "__buttons__button--decline"
+                      ],
+                      on: { click: _vm.decline }
+                    },
+                    [
+                      _vm._t("declineContent", [
+                        _vm._v(
+                          "\n                    Opt Out\n                "
+                        )
+                      ])
+                    ],
+                    2
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  class: [
+                    "cookie__" + _vm.type + "__buttons__button",
+                    "cookie__" + _vm.type + "__buttons__button--accept"
+                  ],
+                  on: { click: _vm.accept }
+                },
+                [
+                  _vm._t("acceptContent", [
+                    _vm._v("\n                    Got It!\n                ")
+                  ])
+                ],
+                2
+              )
+            ])
+          ]
+        )
+      : _vm._e()
+  ])
+};
+var __vue_staticRenderFns__ = [];
+__vue_render__._withStripped = true;
+
+  /* style */
+  var __vue_inject_styles__ = undefined;
+  /* scoped */
+  var __vue_scope_id__ = "data-v-30d19797";
+  /* module identifier */
+  var __vue_module_identifier__ = undefined;
+  /* functional template */
+  var __vue_is_functional_template__ = false;
+  /* component normalizer */
+  function __vue_normalize__(
+    template, style, script$$1,
+    scope, functional, moduleIdentifier,
+    createInjector, createInjectorSSR
+  ) {
+    var component = (typeof script$$1 === 'function' ? script$$1.options : script$$1) || {};
+
+    // For security concerns, we use only base name in production mode.
+    component.__file = "/Users/johndatserakis/Documents/Code/vue-cookie-accept-decline/src/vue-cookie-accept-decline.vue";
+
+    if (!component.render) {
+      component.render = template.render;
+      component.staticRenderFns = template.staticRenderFns;
+      component._compiled = true;
+
+      if (functional) { component.functional = true; }
+    }
+
+    component._scopeId = scope;
+
+    
+
+    return component
+  }
+  /* style inject */
+  
+  /* style inject SSR */
+  
+
+  
+  var component = __vue_normalize__(
+    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+    __vue_inject_styles__,
+    __vue_script__,
+    __vue_scope_id__,
+    __vue_is_functional_template__,
+    __vue_module_identifier__,
+    undefined,
+    undefined
+  )
+
+// Import vue component
+
+// install function executed by Vue.use()
+function install(Vue) {
+	if (install.installed) { return; }
+	install.installed = true;
+	Vue.component('VueCookieAcceptDecline', component);
+}
+
+// Create module definition for Vue.use()
+var plugin = {
+	install: install,
+};
+
+// To auto-install when vue is found
+var GlobalVue = null;
+if (typeof window !== 'undefined') {
+	GlobalVue = window.Vue;
+} else if (typeof global !== 'undefined') {
+	GlobalVue = global.Vue;
+}
+if (GlobalVue) {
+	GlobalVue.use(plugin);
+}
+
+// It's possible to expose named exports when writing components that can
+// also be used as directives, etc. - eg. import { RollupDemoDirective } from 'rollup-demo';
+// export const RollupDemoDirective = component;
+
+export default component;
+export { install };
