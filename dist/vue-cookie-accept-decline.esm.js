@@ -37,6 +37,11 @@ var script = {
         transitionName: {
             type: String,
             default: 'slideFromBottom'
+        },
+
+        showPostponeButton: {
+            type: Boolean,
+            default: false
         }
     },
     data: function data () {
@@ -61,7 +66,7 @@ var script = {
     methods: {
         init: function init () {
             var visitedType = this.getCookieStatus();
-            if (visitedType && (visitedType === 'accept' || visitedType === 'decline')) {
+            if (visitedType && (visitedType === 'accept' || visitedType === 'decline' || visitedType === 'postpone')) {
                 this.isOpen = false;
             }
 
@@ -91,12 +96,18 @@ var script = {
                 if (type === 'decline') {
                     localStorage.setItem(("vue-cookie-accept-decline-" + (this.elementId)), 'decline');
                 }
+                if (type === 'postpone') {
+                    localStorage.setItem(("vue-cookie-accept-decline-" + (this.elementId)), 'postpone');
+                }
             } else {
                 if (type === 'accept') {
                     set(("vue-cookie-accept-decline-" + (this.elementId)), 'accept');
                 }
                 if (type === 'decline') {
                     set(("vue-cookie-accept-decline-" + (this.elementId)), 'decline');
+                }
+                if (type === 'postpone') {
+                    set(("vue-cookie-accept-decline-" + (this.elementId)), 'postpone');
                 }
             }
         },
@@ -114,7 +125,7 @@ var script = {
 
             this.status = 'accept';
             this.isOpen = false;
-            this.$emit('clickedAccept');
+            this.$emit('clicked-accept');
         },
         decline: function decline () {
             if (!this.debug) {
@@ -123,12 +134,21 @@ var script = {
 
             this.status = 'decline';
             this.isOpen = false;
-            this.$emit('clickedDecline');
+            this.$emit('clicked-decline');
+        },
+        postpone: function postpone () {
+            if (!this.debug) {
+                this.setCookieStatus('postpone');
+            }
+
+            this.status = 'postpone';
+            this.isOpen = false;
+            this.$emit('clicked-postpone');
         },
         removeCookie: function removeCookie () {
             localStorage.removeItem(("vue-cookie-accept-decline-" + (this.elementId)));
             this.status = null;
-            this.$emit('removedCookie');
+            this.$emit('removed-cookie');
         }
     },
 }
@@ -153,6 +173,23 @@ var __vue_render__ = function() {
             attrs: { id: _vm.elementId }
           },
           [
+            _vm.showPostponeButton === true
+              ? _c(
+                  "div",
+                  {
+                    class: "cookie__" + _vm.type + "__postpone-button",
+                    attrs: { title: "Close" },
+                    on: { click: _vm.postpone }
+                  },
+                  [
+                    _vm._t("postponeContent", [
+                      _vm._v("\n                ×\n            ")
+                    ])
+                  ],
+                  2
+                )
+              : _vm._e(),
+            _vm._v(" "),
             _c(
               "div",
               { class: "cookie__" + _vm.type + "__content" },
@@ -226,7 +263,7 @@ __vue_render__._withStripped = true;
   /* style */
   var __vue_inject_styles__ = undefined;
   /* scoped */
-  var __vue_scope_id__ = "data-v-30d19797";
+  var __vue_scope_id__ = "data-v-78d52366";
   /* module identifier */
   var __vue_module_identifier__ = undefined;
   /* functional template */
@@ -240,7 +277,7 @@ __vue_render__._withStripped = true;
     var component = (typeof script$$1 === 'function' ? script$$1.options : script$$1) || {};
 
     // For security concerns, we use only base name in production mode.
-    component.__file = "/Users/johndatserakis/Documents/Code/vue-cookie-accept-decline/src/vue-cookie-accept-decline.vue";
+    component.__file = "/Users/promosis/Documents/Code/vue-cookie-accept-decline/src/vue-cookie-accept-decline.vue";
 
     if (!component.render) {
       component.render = template.render;

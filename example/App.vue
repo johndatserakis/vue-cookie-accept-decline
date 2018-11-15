@@ -55,8 +55,6 @@
             <div class="row justify-content-center">
                 <div class="col-xl-4">
                     <button @click="removeCookie" class="btn btn-primary btn-block mb-4">&times; &nbsp; Remove Browser Cookie</button>
-
-
                 </div>
 
                 <div class="col-xl-4">
@@ -75,10 +73,17 @@
             :type="'floating'"
             :disableDecline="false"
             :transitionName="'slideFromBottom'"
+            :showPostponeButton="true"
             @status="cookieStatus"
-            @clickedAccept="cookieClickedAccept"
-            @clickedDecline="cookieClickedDecline"
-            @removedCookie="cookieRemovedCookie">
+            @clicked-accept="cookieClickedAccept"
+            @clicked-decline="cookieClickedDecline"
+            @clicked-postpone="cookieClickedPostpone"
+            @removed-cookie="cookieRemovedCookie">
+
+            <!-- Optional -->
+            <div slot="postponeContent">
+                &times;
+            </div>
 
             <!-- Optional -->
             <div slot="message">
@@ -119,6 +124,10 @@
             cookieClickedDecline () {
                 console.log('here in decline')
                 this.status = 'decline'
+            },
+            cookieClickedPostpone () {
+                console.log('here in postpone')
+                this.status = 'postpone'
             },
             cookieRemovedCookie () {
                 console.log('here in cookieRemoved')

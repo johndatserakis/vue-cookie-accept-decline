@@ -41,6 +41,11 @@
             transitionName: {
                 type: String,
                 default: 'slideFromBottom'
+            },
+
+            showPostponeButton: {
+                type: Boolean,
+                default: false
             }
         },
         data: function data () {
@@ -65,7 +70,7 @@
         methods: {
             init: function init () {
                 var visitedType = this.getCookieStatus();
-                if (visitedType && (visitedType === 'accept' || visitedType === 'decline')) {
+                if (visitedType && (visitedType === 'accept' || visitedType === 'decline' || visitedType === 'postpone')) {
                     this.isOpen = false;
                 }
 
@@ -95,12 +100,18 @@
                     if (type === 'decline') {
                         localStorage.setItem(("vue-cookie-accept-decline-" + (this.elementId)), 'decline');
                     }
+                    if (type === 'postpone') {
+                        localStorage.setItem(("vue-cookie-accept-decline-" + (this.elementId)), 'postpone');
+                    }
                 } else {
                     if (type === 'accept') {
                         tinyCookie.set(("vue-cookie-accept-decline-" + (this.elementId)), 'accept');
                     }
                     if (type === 'decline') {
                         tinyCookie.set(("vue-cookie-accept-decline-" + (this.elementId)), 'decline');
+                    }
+                    if (type === 'postpone') {
+                        tinyCookie.set(("vue-cookie-accept-decline-" + (this.elementId)), 'postpone');
                     }
                 }
             },
@@ -118,7 +129,7 @@
 
                 this.status = 'accept';
                 this.isOpen = false;
-                this.$emit('clickedAccept');
+                this.$emit('clicked-accept');
             },
             decline: function decline () {
                 if (!this.debug) {
@@ -127,12 +138,21 @@
 
                 this.status = 'decline';
                 this.isOpen = false;
-                this.$emit('clickedDecline');
+                this.$emit('clicked-decline');
+            },
+            postpone: function postpone () {
+                if (!this.debug) {
+                    this.setCookieStatus('postpone');
+                }
+
+                this.status = 'postpone';
+                this.isOpen = false;
+                this.$emit('clicked-postpone');
             },
             removeCookie: function removeCookie () {
                 localStorage.removeItem(("vue-cookie-accept-decline-" + (this.elementId)));
                 this.status = null;
-                this.$emit('removedCookie');
+                this.$emit('removed-cookie');
             }
         },
     }
@@ -157,6 +177,23 @@
                 attrs: { id: _vm.elementId }
               },
               [
+                _vm.showPostponeButton === true
+                  ? _c(
+                      "div",
+                      {
+                        class: "cookie__" + _vm.type + "__postpone-button",
+                        attrs: { title: "Close" },
+                        on: { click: _vm.postpone }
+                      },
+                      [
+                        _vm._t("postponeContent", [
+                          _vm._v("\n                ×\n            ")
+                        ])
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
                 _c(
                   "div",
                   { class: "cookie__" + _vm.type + "__content" },
@@ -230,7 +267,7 @@
       /* style */
       var __vue_inject_styles__ = undefined;
       /* scoped */
-      var __vue_scope_id__ = "data-v-30d19797";
+      var __vue_scope_id__ = "data-v-78d52366";
       /* module identifier */
       var __vue_module_identifier__ = undefined;
       /* functional template */
@@ -244,7 +281,7 @@
         var component = (typeof script$$1 === 'function' ? script$$1.options : script$$1) || {};
 
         // For security concerns, we use only base name in production mode.
-        component.__file = "/Users/johndatserakis/Documents/Code/vue-cookie-accept-decline/src/vue-cookie-accept-decline.vue";
+        component.__file = "/Users/promosis/Documents/Code/vue-cookie-accept-decline/src/vue-cookie-accept-decline.vue";
 
         if (!component.render) {
           component.render = template.render;
