@@ -1,6 +1,7 @@
 
 @charset "UTF-8";
-.cookie__bar[data-v-30d19797] {
+.cookie__bar[data-v-78d52366] {
+  -ms-overflow-style: none;
   position: fixed;
   overflow: hidden;
   box-sizing: border-box;
@@ -20,21 +21,33 @@
   line-height: 1.5;
 }
 @media (min-width: 768px) {
-.cookie__bar[data-v-30d19797] {
+.cookie__bar[data-v-78d52366] {
       flex-direction: row;
 }
 }
-.cookie__bar--bottom[data-v-30d19797] {
+.cookie__bar--bottom[data-v-78d52366] {
     bottom: 0;
     left: 0;
     right: 0;
 }
-.cookie__bar--top[data-v-30d19797] {
+.cookie__bar--top[data-v-78d52366] {
     top: 0;
     left: 0;
     right: 0;
 }
-.cookie__bar__content[data-v-30d19797] {
+.cookie__bar__postpone-button[data-v-78d52366] {
+    margin-right: auto;
+}
+@media (min-width: 768px) {
+.cookie__bar__postpone-button[data-v-78d52366] {
+        margin-right: 10px;
+}
+}
+.cookie__bar__postpone-button[data-v-78d52366]:hover {
+      opacity: 0.8;
+      cursor: pointer;
+}
+.cookie__bar__content[data-v-78d52366] {
     margin-right: 0;
     margin-bottom: 20px;
     font-size: 0.9rem;
@@ -42,24 +55,24 @@
     overflow: scroll;
 }
 @media (min-width: 768px) {
-.cookie__bar__content[data-v-30d19797] {
-        margin-right: 10px;
+.cookie__bar__content[data-v-78d52366] {
+        margin-right: auto;
         margin-bottom: 0;
 }
 }
-.cookie__bar__buttons[data-v-30d19797] {
+.cookie__bar__buttons[data-v-78d52366] {
     transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 @media (min-width: 768px) {
-.cookie__bar__buttons[data-v-30d19797] {
+.cookie__bar__buttons[data-v-78d52366] {
         flex-direction: row;
         width: auto;
 }
 }
-.cookie__bar__buttons__button[data-v-30d19797] {
+.cookie__bar__buttons__button[data-v-78d52366] {
       display: inline-block;
       font-weight: 400;
       text-align: center;
@@ -72,34 +85,35 @@
       border-radius: 3px;
       font-size: 0.9rem;
 }
-.cookie__bar__buttons__button[data-v-30d19797]:hover {
+.cookie__bar__buttons__button[data-v-78d52366]:hover {
         cursor: pointer;
         text-decoration: none;
 }
-.cookie__bar__buttons__button--accept[data-v-30d19797] {
+.cookie__bar__buttons__button--accept[data-v-78d52366] {
         background: #4caf50;
         background: linear-gradient(#5cb860, #4caf50);
         color: #fff;
 }
-.cookie__bar__buttons__button--accept[data-v-30d19797]:hover {
+.cookie__bar__buttons__button--accept[data-v-78d52366]:hover {
           background: #409343;
 }
-.cookie__bar__buttons__button--decline[data-v-30d19797] {
+.cookie__bar__buttons__button--decline[data-v-78d52366] {
         background: #f44336;
         background: linear-gradient(#f55a4e, #f44336);
         color: #fff;
         margin-bottom: 10px;
 }
-.cookie__bar__buttons__button--decline[data-v-30d19797]:hover {
+.cookie__bar__buttons__button--decline[data-v-78d52366]:hover {
           background: #f21f0f;
 }
 @media (min-width: 768px) {
-.cookie__bar__buttons__button--decline[data-v-30d19797] {
+.cookie__bar__buttons__button--decline[data-v-78d52366] {
             margin-bottom: 0;
             margin-right: 10px;
 }
 }
-.cookie__floating[data-v-30d19797] {
+.cookie__floating[data-v-78d52366] {
+  -ms-overflow-style: none;
   position: fixed;
   overflow: hidden;
   box-sizing: border-box;
@@ -121,12 +135,12 @@
   margin: 0 auto;
 }
 @media (min-width: 768px) {
-.cookie__floating[data-v-30d19797] {
+.cookie__floating[data-v-78d52366] {
       max-width: 300px;
 }
 }
 @media (min-width: 768px) {
-.cookie__floating--bottom-left[data-v-30d19797] {
+.cookie__floating--bottom-left[data-v-78d52366] {
       bottom: 20px;
       left: 20px;
       right: auto;
@@ -134,7 +148,7 @@
 }
 }
 @media (min-width: 768px) {
-.cookie__floating--bottom-right[data-v-30d19797] {
+.cookie__floating--bottom-right[data-v-78d52366] {
       bottom: 20px;
       right: 20px;
       left: auto;
@@ -142,7 +156,7 @@
 }
 }
 @media (min-width: 768px) {
-.cookie__floating--top-right[data-v-30d19797] {
+.cookie__floating--top-right[data-v-78d52366] {
       top: 20px;
       bottom: auto;
       right: 20px;
@@ -151,7 +165,7 @@
 }
 }
 @media (min-width: 768px) {
-.cookie__floating--top-left[data-v-30d19797] {
+.cookie__floating--top-left[data-v-78d52366] {
       top: 20px;
       bottom: auto;
       right: auto;
@@ -159,7 +173,17 @@
       margin: 0 0;
 }
 }
-.cookie__floating__content[data-v-30d19797] {
+.cookie__floating__postpone-button[data-v-78d52366] {
+    display: inline-flex;
+    padding: 5px 0 0 20px;
+    margin-bottom: -10px;
+    margin-right: auto;
+}
+.cookie__floating__postpone-button[data-v-78d52366]:hover {
+      opacity: 0.8;
+      cursor: pointer;
+}
+.cookie__floating__content[data-v-78d52366] {
     font-size: 0.95rem;
     margin-bottom: 5px;
     padding: 15px 20px;
@@ -167,18 +191,18 @@
     overflow: scroll;
 }
 @media (min-width: 768px) {
-.cookie__floating__content[data-v-30d19797] {
+.cookie__floating__content[data-v-78d52366] {
         margin-bottom: 10px;
 }
 }
-.cookie__floating__buttons[data-v-30d19797] {
+.cookie__floating__buttons[data-v-78d52366] {
     transition: all 0.2s ease;
     display: flex;
     flex-direction: row;
     height: auto;
     width: 100%;
 }
-.cookie__floating__buttons__button[data-v-30d19797] {
+.cookie__floating__buttons__button[data-v-78d52366] {
       background-color: #eee;
       font-weight: bold;
       font-size: 0.90rem;
@@ -192,55 +216,55 @@
       border-right: none;
       padding: 0.375rem 0.75rem;
 }
-.cookie__floating__buttons__button[data-v-30d19797]:first-child {
+.cookie__floating__buttons__button[data-v-78d52366]:first-child {
         border-right: 1px solid #ddd;
 }
-.cookie__floating__buttons__button[data-v-30d19797]:hover {
+.cookie__floating__buttons__button[data-v-78d52366]:hover {
         cursor: pointer;
         text-decoration: none;
 }
-.cookie__floating__buttons__button--accept[data-v-30d19797] {
+.cookie__floating__buttons__button--accept[data-v-78d52366] {
         color: #4caf50;
 }
-.cookie__floating__buttons__button--accept[data-v-30d19797]:hover {
+.cookie__floating__buttons__button--accept[data-v-78d52366]:hover {
           background: #409343;
           color: #fff;
 }
-.cookie__floating__buttons__button--decline[data-v-30d19797] {
+.cookie__floating__buttons__button--decline[data-v-78d52366] {
         color: #f44336;
 }
-.cookie__floating__buttons__button--decline[data-v-30d19797]:hover {
+.cookie__floating__buttons__button--decline[data-v-78d52366]:hover {
           background: #f21f0f;
           color: #fff;
 }
-.slideFromBottom-enter[data-v-30d19797], .slideFromBottom-leave-to[data-v-30d19797] {
+.slideFromBottom-enter[data-v-78d52366], .slideFromBottom-leave-to[data-v-78d52366] {
   transform: translate(0px, 10em);
 }
-.slideFromBottom-enter-to[data-v-30d19797], .slideFromBottom-leave[data-v-30d19797] {
+.slideFromBottom-enter-to[data-v-78d52366], .slideFromBottom-leave[data-v-78d52366] {
   transform: translate(0px, 0px);
 }
-.slideFromBottom-enter-active[data-v-30d19797] {
+.slideFromBottom-enter-active[data-v-78d52366] {
   transition: transform .2s ease-out;
 }
-.slideFromBottom-leave-active[data-v-30d19797] {
+.slideFromBottom-leave-active[data-v-78d52366] {
   transition: transform .2s ease-in;
 }
-.slideFromTop-enter[data-v-30d19797], .slideFromTop-leave-to[data-v-30d19797] {
+.slideFromTop-enter[data-v-78d52366], .slideFromTop-leave-to[data-v-78d52366] {
   transform: translate(0px, -10em);
 }
-.slideFromTop-enter-to[data-v-30d19797], .slideFromTop-leave[data-v-30d19797] {
+.slideFromTop-enter-to[data-v-78d52366], .slideFromTop-leave[data-v-78d52366] {
   transform: translate(0px, 0px);
 }
-.slideFromTop-enter-active[data-v-30d19797] {
+.slideFromTop-enter-active[data-v-78d52366] {
   transition: transform .2s ease-out;
 }
-.slideFromTop-leave-active[data-v-30d19797] {
+.slideFromTop-leave-active[data-v-78d52366] {
   transition: transform .2s ease-in;
 }
-.fade-enter-active[data-v-30d19797], .fade-leave-active[data-v-30d19797] {
+.fade-enter-active[data-v-78d52366], .fade-leave-active[data-v-78d52366] {
   transition: opacity .5s;
 }
-.fade-enter[data-v-30d19797], .fade-leave-to[data-v-30d19797] {
+.fade-enter[data-v-78d52366], .fade-leave-to[data-v-78d52366] {
   opacity: 0;
 }
 

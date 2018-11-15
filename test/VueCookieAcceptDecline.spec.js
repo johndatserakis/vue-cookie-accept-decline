@@ -57,7 +57,7 @@ describe('VueCookieAcceptDecline.vue', () => {
         expect(wrapper.vm.status).toBe('accept')
 
         // Check the event was emitted properly
-        expect(wrapper.emitted().clickedAccept).toBeTruthy()
+        expect(wrapper.emitted('clicked-accept')).toBeTruthy()
     })
 
     it('Sets the decline cookie correctly', async () => {
@@ -86,7 +86,36 @@ describe('VueCookieAcceptDecline.vue', () => {
         expect(wrapper.vm.status).toBe('decline')
 
         // Check the event was emitted properly
-        expect(wrapper.emitted().clickedDecline).toBeTruthy()
+        expect(wrapper.emitted('clicked-decline')).toBeTruthy()
+    })
+
+    it('Sets the postpone cookie correctly', async () => {
+        let initialPropsData = {
+            elementId: 'myPanel1',
+            debug: false,
+            position: 'bottom-left',
+            type: 'floating',
+            disableDecline: false,
+            transitionName: 'slideFromBottom'
+        }
+
+        const wrapper = shallowMount(VueCookieAcceptDecline, {
+            propsData: {
+                elementId: initialPropsData.elementId,
+                debug: initialPropsData.debug,
+                position: initialPropsData.position,
+                type: initialPropsData.type,
+                disableDecline: initialPropsData.disableDecline,
+                transitionName: initialPropsData.transitionName
+            }
+        })
+
+        // Run the postpone function
+        wrapper.vm.postpone()
+        expect(wrapper.vm.status).toBe('postpone')
+
+        // Check the event was emitted properly
+        expect(wrapper.emitted('clicked-postpone')).toBeTruthy()
     })
 
     it('Removes cookie correctly', async () => {
@@ -119,6 +148,6 @@ describe('VueCookieAcceptDecline.vue', () => {
         expect(wrapper.vm.status).toBe(null)
 
         // Check the event was emitted properly
-        expect(wrapper.emitted().removedCookie).toBeTruthy()
+        expect(wrapper.emitted('removed-cookie')).toBeTruthy()
     })
 })

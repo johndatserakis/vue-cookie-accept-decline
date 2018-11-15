@@ -1,5 +1,11 @@
 # CHANGELOG.md
 
+## 5.0.0 (2018-11-15)
+
+- Adjusted the way that events were emitted (now all snake-case). [issue](https://github.com/promosis/vue-cookie-accept-decline/issues/10)
+- Added new way to postpone and hide the popup. [issue](https://github.com/promosis/vue-cookie-accept-decline/issues/11)
+- Fixed Windows scrollbar issue.
+
 ## 4.0.0 (2018-11-02)
 
 - Adjusted build output - there will now be an additional `css` file that needs to be imported along with the `js`. This allows the `css` to be handled nicely by webpack or your app's build system.

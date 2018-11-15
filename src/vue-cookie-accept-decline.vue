@@ -2,6 +2,12 @@
     <transition appear :name="transitionName">
         <div class="cookie" :class="['cookie__' + type, 'cookie__' + type + '--' + position]" v-if="isOpen" :id="elementId">
 
+            <div v-if="showPostponeButton === true" @click="postpone" :class="'cookie__' + type + '__postpone-button'" title="Close">
+                <slot name="postponeContent">
+                    &times;
+                </slot>
+            </div>
+
             <div :class="'cookie__' + type + '__content'">
                 <slot name="message">
                     We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a>
@@ -63,6 +69,11 @@ export default {
         transitionName: {
             type: String,
             default: 'slideFromBottom'
+        },
+
+        showPostponeButton: {
+            type: Boolean,
+            default: false
         }
     },
     data () {
@@ -87,7 +98,7 @@ export default {
     methods: {
         init () {
             let visitedType = this.getCookieStatus()
-            if (visitedType && (visitedType === 'accept' || visitedType === 'decline')) {
+            if (visitedType && (visitedType === 'accept' || visitedType === 'decline' || visitedType === 'postpone')) {
                 this.isOpen = false
             }
 
@@ -117,12 +128,18 @@ export default {
                 if (type === 'decline') {
                     localStorage.setItem(`vue-cookie-accept-decline-${this.elementId}`, 'decline')
                 }
+                if (type === 'postpone') {
+                    localStorage.setItem(`vue-cookie-accept-decline-${this.elementId}`, 'postpone')
+                }
             } else {
                 if (type === 'accept') {
                     tinyCookie.set(`vue-cookie-accept-decline-${this.elementId}`, 'accept')
                 }
                 if (type === 'decline') {
                     tinyCookie.set(`vue-cookie-accept-decline-${this.elementId}`, 'decline')
+                }
+                if (type === 'postpone') {
+                    tinyCookie.set(`vue-cookie-accept-decline-${this.elementId}`, 'postpone')
                 }
             }
         },
@@ -140,7 +157,7 @@ export default {
 
             this.status = 'accept'
             this.isOpen = false
-            this.$emit('clickedAccept')
+            this.$emit('clicked-accept')
         },
         decline () {
             if (!this.debug) {
@@ -149,12 +166,21 @@ export default {
 
             this.status = 'decline'
             this.isOpen = false
-            this.$emit('clickedDecline')
+            this.$emit('clicked-decline')
+        },
+        postpone () {
+            if (!this.debug) {
+                this.setCookieStatus('postpone')
+            }
+
+            this.status = 'postpone'
+            this.isOpen = false
+            this.$emit('clicked-postpone')
         },
         removeCookie () {
             localStorage.removeItem(`vue-cookie-accept-decline-${this.elementId}`)
             this.status = null
-            this.$emit('removedCookie')
+            this.$emit('removed-cookie')
         }
     },
 }
@@ -176,6 +202,7 @@ export default {
     // Bar
     .cookie {
         &__bar {
+            -ms-overflow-style: none;
             position: fixed;
             overflow: hidden;
             box-sizing: border-box;
@@ -210,6 +237,19 @@ export default {
                 right: 0;
             }
 
+            &__postpone-button {
+                margin-right: auto;
+
+                @media (min-width: 768px) {
+                    margin-right: 10px;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                    cursor: pointer;
+                }
+            }
+
             &__content {
                 margin-right: 0;
                 margin-bottom: 20px;
@@ -218,7 +258,7 @@ export default {
                 overflow: scroll;
 
                 @media (min-width: 768px) {
-                    margin-right: 10px;
+                    margin-right: auto;
                     margin-bottom: 0;
                 }
             }
@@ -285,6 +325,7 @@ export default {
     // Floating
     .cookie {
         &__floating {
+            -ms-overflow-style: none;
             position: fixed;
             overflow: hidden;
             box-sizing: border-box;
@@ -347,6 +388,18 @@ export default {
                     right: auto;
                     left: 20px;
                     margin: 0 0;
+                }
+            }
+
+            &__postpone-button {
+                display: inline-flex;
+                padding: 5px 0 0 20px;
+                margin-bottom: -10px;
+                margin-right: auto;
+
+                &:hover {
+                    opacity: 0.8;
+                    cursor: pointer;
                 }
             }
 

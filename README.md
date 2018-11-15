@@ -44,7 +44,7 @@ We needed a component to show a privacy banners on pages - came across the aweso
 
 The big difference here is that `vue-cookie-accept-decline` allows the user to decline the text on the banner - this is important because you may want to *not* uses cookies in your app if they have declined the oppurtunity to be tracked.
 
-When the  decline or accept buttons are clicked, they will emit the events `clickedAccept` and `clickedDeclined` respectively. Also, on creation, the component will emit a `status` event with a value of the current setting, `null` for nothing set, `accept` for an accepted banner, and `decline` for a declined banner. You can listen to this event on the component and do something like disable cookies if you see they have declined the banner.
+When the  decline or accept buttons are clicked, they will emit the events `clicked-accept` and `clicked-declined` respectively. Also, on creation, the component will emit a `status` event with a value of the current setting, `null` for nothing set, `accept` for an accepted banner, and `decline` for a declined banner. You can listen to this event on the component and do something like disable cookies if you see they have declined the banner. The component also has an optional `postpone` close button that will let the users dismiss the message without selecting an option.
 
 Each instance of the component requires the prop of `elementId` - this is to allow for the use of multiple instances of `vue-cookie-accept-decline` on the same page. To delete the cookie for a specific instance, set the `ref` property on your instance and call the exposed `removeCookie` method like this: `this.$refs.myPanel1.removeCookie()`. You can then call `this.$refs.myPanel1.init()` to show the user the panel again. See the demo page for a detailed example.
 
@@ -70,9 +70,15 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
     :type="'floating'"
     :disableDecline="false"
     :transitionName="'slideFromBottom'"
+    :showPostponeButton="true"
     @status="cookieStatus"
-    @clickedAccept="cookieClickedAccept"
-    @clickedDecline="cookieClickedDecline">
+    @clicked-accept="cookieClickedAccept"
+    @clicked-decline="cookieClickedDecline">
+
+    <!-- Optional -->
+    <div slot="postponeContent">
+        &times;
+    </div>
 
     <!-- Optional -->
     <div slot="message">
@@ -96,22 +102,24 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 | prop           | type    | required | default         | possible values                     | description                                                          |
 |----------------|---------|----------|-----------------|-------------------------------------|----------------------------------------------------------------------|
 | ref            | String  | no       | none            | Any String                          | Unique string that gives you control over the component |
-| elementId             | string  | yes      | none            | Any String                          | The unique id for the instance. This string will be appened to the string 'vue-cookie-accept-decline-' to allow for multiple components. |
+| elementId      | string  | yes      | none            | Any String                          | The unique id for the instance. This string will be appened to the string 'vue-cookie-accept-decline-' to allow for multiple components. |
 | debug          | boolean | no       | false           | true, false                         | If true, the cookie is never saved, only the events will be emitted |
 | position       | string  | no       | bottom          | For floating: bottom-left, bottom-right, top-left, top-right -- For bar: bottom, top | Position of the banner   |
 | type           | string  | no       | floating        | floating, bar                       | Type of banner   |
 | disableDecline | boolean | no       | false           | true, false                         | If true, the 'opt out' button is not shown |
 | transitionName | string  | no       | slideFromBottom | slideFromBottom, slideFromTop, fade | Banner animation type    |
+| showPostponeButton | boolean  | no  | false           | true, false                         | Optionally show a close button that allows the user to postpone selecting an option. |
 
 
 ### Events
 
 | event          | value                     | description                                                   |
 |----------------|---------------------------|---------------------------------------------------------------|
-| status         | 'accept', 'decline', null | Event will be emitted when component is created.             |
-| clickedAccept  | none                      | Event will be emitted when accept is clicked on the banner.   |
-| clickedDecline | none                      | Event will be emitted when declined is clicked on the banner. |
-| removedCookie | none                      | Event will be emitted when the cookie has been removed using the `removeCookie()` method. |
+| status         | 'accept', 'decline', 'postpone', null | Event will be emitted when component is created.             |
+| clicked-accept  | none                     | Event will be emitted when accept is clicked on the banner.   |
+| clicked-decline | none                     | Event will be emitted when declined is clicked on the banner. |
+| clicked-postpone | none                    | Event will be emitted when postponed is clicked on the banner. |
+| removed-cookie | none                      | Event will be emitted when the cookie has been removed using the `removeCookie()` method. |
 
 ### Slots
 
@@ -122,6 +130,7 @@ There are slots for your own custom `message`, `declineContent`, `acceptContent`
 | message        | We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a> |
 | declineContent | Opt Out |
 | acceptContent  | Got It! |
+| postponeContent  | `&times;` |
 
 ### Methods
 
@@ -142,6 +151,9 @@ Note - call these methods through the `ref` you set up with your component. Exam
         }
 
         &--top {
+        }
+
+        &__postpone-button {
         }
 
         &__content {
@@ -173,6 +185,9 @@ Note - call these methods through the `ref` you set up with your component. Exam
         }
 
         &--top-left {
+        }
+
+        &__postpone-button {
         }
 
         &__content {
