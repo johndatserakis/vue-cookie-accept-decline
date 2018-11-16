@@ -239,6 +239,7 @@ export default {
 
             &__postpone-button {
                 margin-right: auto;
+                -ms-flex: 1 1 auto;
 
                 @media (min-width: 768px) {
                     margin-right: 10px;
@@ -256,6 +257,8 @@ export default {
                 font-size: 0.9rem;
                 max-height: 103px;
                 overflow: scroll;
+                width: 100%;
+                -ms-flex: 1 1 auto;
 
                 @media (min-width: 768px) {
                     margin-right: auto;
@@ -293,6 +296,7 @@ export default {
                     }
 
                     &--accept {
+                        -ms-flex: 1 1 auto;
                         background: $green;
                         background: linear-gradient(lighten($green, 5%), $green);
                         color: $white;
@@ -303,6 +307,7 @@ export default {
                     }
 
                     &--decline {
+                        -ms-flex: 1 1 auto;
                         background: $red;
                         background: linear-gradient(lighten($red, 5%), $red);
                         color: $white;
@@ -448,6 +453,7 @@ export default {
 
                     &--accept {
                         color: $green;
+                        -ms-flex: 1 1 auto;
 
                         &:hover {
                             background: $dark-green;
@@ -457,6 +463,7 @@ export default {
 
                     &--decline {
                         color: $red;
+                        -ms-flex: 1 1 auto;
 
                         &:hover {
                             background: $dark-red;
