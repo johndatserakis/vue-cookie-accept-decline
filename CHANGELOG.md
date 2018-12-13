@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 5.0.2 (2018-12-13)
+
+- Fixing scrollbar issue on Windows in Chrome and Firefox
+
 ## 5.0.0 (2018-11-15)
 
 - Adjusted the way that events were emitted (now all snake-case). [issue](https://github.com/promosis/vue-cookie-accept-decline/issues/10)

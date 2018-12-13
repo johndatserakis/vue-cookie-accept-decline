@@ -199,8 +199,8 @@ export default {
     $black: #333;
     $transition: all 0.2s ease;
 
-    // Bar
     .cookie {
+        // Bar
         &__bar {
             -ms-overflow-style: none;
             position: fixed;
@@ -256,7 +256,7 @@ export default {
                 margin-bottom: 20px;
                 font-size: 0.9rem;
                 max-height: 103px;
-                overflow: scroll;
+                overflow: auto;
                 width: 100%;
                 -ms-flex: 1 1 auto;
 
@@ -325,10 +325,8 @@ export default {
                 }
             }
         }
-    }
 
-    // Floating
-    .cookie {
+        // Floating
         &__floating {
             -ms-overflow-style: none;
             position: fixed;
@@ -413,7 +411,7 @@ export default {
                 margin-bottom: 5px;
                 padding: 15px 20px;
                 max-height: 103px;
-                overflow: scroll;
+                overflow: auto;
 
                 @media (min-width: 768px) {
                     margin-bottom: 10px;

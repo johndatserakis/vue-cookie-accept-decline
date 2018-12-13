@@ -144,8 +144,8 @@ Note - call these methods through the `ref` you set up with your component. Exam
 ### SASS Structure
 
 ```sass
-// Bar style
 .cookie {
+    // Bar style
     &__bar {
         &--bottom {
         }
@@ -170,10 +170,8 @@ Note - call these methods through the `ref` you set up with your component. Exam
             }
         }
     }
-}
 
-// Floating style
-.cookie {
+    // Floating style
     &__floating {
         &--bottom-left {
         }
