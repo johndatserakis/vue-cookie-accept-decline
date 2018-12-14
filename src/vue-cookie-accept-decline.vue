@@ -410,7 +410,7 @@ export default {
                 font-size: 0.95rem;
                 margin-bottom: 5px;
                 padding: 15px 20px;
-                max-height: 103px;
+                max-height: 105px;
                 overflow: auto;
 
                 @media (min-width: 768px) {

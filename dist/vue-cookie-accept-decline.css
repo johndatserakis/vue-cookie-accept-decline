@@ -1,6 +1,6 @@
 
 @charset "UTF-8";
-.cookie__bar[data-v-d9196c78] {
+.cookie__bar[data-v-5d724482] {
   -ms-overflow-style: none;
   position: fixed;
   overflow: hidden;
@@ -21,34 +21,34 @@
   line-height: 1.5;
 }
 @media (min-width: 768px) {
-.cookie__bar[data-v-d9196c78] {
+.cookie__bar[data-v-5d724482] {
       flex-direction: row;
 }
 }
-.cookie__bar--bottom[data-v-d9196c78] {
+.cookie__bar--bottom[data-v-5d724482] {
     bottom: 0;
     left: 0;
     right: 0;
 }
-.cookie__bar--top[data-v-d9196c78] {
+.cookie__bar--top[data-v-5d724482] {
     top: 0;
     left: 0;
     right: 0;
 }
-.cookie__bar__postpone-button[data-v-d9196c78] {
+.cookie__bar__postpone-button[data-v-5d724482] {
     margin-right: auto;
     -ms-flex: 1 1 auto;
 }
 @media (min-width: 768px) {
-.cookie__bar__postpone-button[data-v-d9196c78] {
+.cookie__bar__postpone-button[data-v-5d724482] {
         margin-right: 10px;
 }
 }
-.cookie__bar__postpone-button[data-v-d9196c78]:hover {
+.cookie__bar__postpone-button[data-v-5d724482]:hover {
       opacity: 0.8;
       cursor: pointer;
 }
-.cookie__bar__content[data-v-d9196c78] {
+.cookie__bar__content[data-v-5d724482] {
     margin-right: 0;
     margin-bottom: 20px;
     font-size: 0.9rem;
@@ -58,24 +58,24 @@
     -ms-flex: 1 1 auto;
 }
 @media (min-width: 768px) {
-.cookie__bar__content[data-v-d9196c78] {
+.cookie__bar__content[data-v-5d724482] {
         margin-right: auto;
         margin-bottom: 0;
 }
 }
-.cookie__bar__buttons[data-v-d9196c78] {
+.cookie__bar__buttons[data-v-5d724482] {
     transition: all 0.2s ease;
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 @media (min-width: 768px) {
-.cookie__bar__buttons[data-v-d9196c78] {
+.cookie__bar__buttons[data-v-5d724482] {
         flex-direction: row;
         width: auto;
 }
 }
-.cookie__bar__buttons__button[data-v-d9196c78] {
+.cookie__bar__buttons__button[data-v-5d724482] {
       display: inline-block;
       font-weight: 400;
       text-align: center;
@@ -88,36 +88,36 @@
       border-radius: 3px;
       font-size: 0.9rem;
 }
-.cookie__bar__buttons__button[data-v-d9196c78]:hover {
+.cookie__bar__buttons__button[data-v-5d724482]:hover {
         cursor: pointer;
         text-decoration: none;
 }
-.cookie__bar__buttons__button--accept[data-v-d9196c78] {
+.cookie__bar__buttons__button--accept[data-v-5d724482] {
         -ms-flex: 1 1 auto;
         background: #4caf50;
         background: linear-gradient(#5cb860, #4caf50);
         color: #fff;
 }
-.cookie__bar__buttons__button--accept[data-v-d9196c78]:hover {
+.cookie__bar__buttons__button--accept[data-v-5d724482]:hover {
           background: #409343;
 }
-.cookie__bar__buttons__button--decline[data-v-d9196c78] {
+.cookie__bar__buttons__button--decline[data-v-5d724482] {
         -ms-flex: 1 1 auto;
         background: #f44336;
         background: linear-gradient(#f55a4e, #f44336);
         color: #fff;
         margin-bottom: 10px;
 }
-.cookie__bar__buttons__button--decline[data-v-d9196c78]:hover {
+.cookie__bar__buttons__button--decline[data-v-5d724482]:hover {
           background: #f21f0f;
 }
 @media (min-width: 768px) {
-.cookie__bar__buttons__button--decline[data-v-d9196c78] {
+.cookie__bar__buttons__button--decline[data-v-5d724482] {
             margin-bottom: 0;
             margin-right: 10px;
 }
 }
-.cookie__floating[data-v-d9196c78] {
+.cookie__floating[data-v-5d724482] {
   -ms-overflow-style: none;
   position: fixed;
   overflow: hidden;
@@ -140,12 +140,12 @@
   margin: 0 auto;
 }
 @media (min-width: 768px) {
-.cookie__floating[data-v-d9196c78] {
+.cookie__floating[data-v-5d724482] {
       max-width: 300px;
 }
 }
 @media (min-width: 768px) {
-.cookie__floating--bottom-left[data-v-d9196c78] {
+.cookie__floating--bottom-left[data-v-5d724482] {
       bottom: 20px;
       left: 20px;
       right: auto;
@@ -153,7 +153,7 @@
 }
 }
 @media (min-width: 768px) {
-.cookie__floating--bottom-right[data-v-d9196c78] {
+.cookie__floating--bottom-right[data-v-5d724482] {
       bottom: 20px;
       right: 20px;
       left: auto;
@@ -161,7 +161,7 @@
 }
 }
 @media (min-width: 768px) {
-.cookie__floating--top-right[data-v-d9196c78] {
+.cookie__floating--top-right[data-v-5d724482] {
       top: 20px;
       bottom: auto;
       right: 20px;
@@ -170,7 +170,7 @@
 }
 }
 @media (min-width: 768px) {
-.cookie__floating--top-left[data-v-d9196c78] {
+.cookie__floating--top-left[data-v-5d724482] {
       top: 20px;
       bottom: auto;
       right: auto;
@@ -178,36 +178,36 @@
       margin: 0 0;
 }
 }
-.cookie__floating__postpone-button[data-v-d9196c78] {
+.cookie__floating__postpone-button[data-v-5d724482] {
     display: inline-flex;
     padding: 5px 0 0 20px;
     margin-bottom: -10px;
     margin-right: auto;
 }
-.cookie__floating__postpone-button[data-v-d9196c78]:hover {
+.cookie__floating__postpone-button[data-v-5d724482]:hover {
       opacity: 0.8;
       cursor: pointer;
 }
-.cookie__floating__content[data-v-d9196c78] {
+.cookie__floating__content[data-v-5d724482] {
     font-size: 0.95rem;
     margin-bottom: 5px;
     padding: 15px 20px;
-    max-height: 103px;
+    max-height: 105px;
     overflow: auto;
 }
 @media (min-width: 768px) {
-.cookie__floating__content[data-v-d9196c78] {
+.cookie__floating__content[data-v-5d724482] {
         margin-bottom: 10px;
 }
 }
-.cookie__floating__buttons[data-v-d9196c78] {
+.cookie__floating__buttons[data-v-5d724482] {
     transition: all 0.2s ease;
     display: flex;
     flex-direction: row;
     height: auto;
     width: 100%;
 }
-.cookie__floating__buttons__button[data-v-d9196c78] {
+.cookie__floating__buttons__button[data-v-5d724482] {
       background-color: #eee;
       font-weight: bold;
       font-size: 0.90rem;
@@ -221,57 +221,57 @@
       border-right: none;
       padding: 0.375rem 0.75rem;
 }
-.cookie__floating__buttons__button[data-v-d9196c78]:first-child {
+.cookie__floating__buttons__button[data-v-5d724482]:first-child {
         border-right: 1px solid #ddd;
 }
-.cookie__floating__buttons__button[data-v-d9196c78]:hover {
+.cookie__floating__buttons__button[data-v-5d724482]:hover {
         cursor: pointer;
         text-decoration: none;
 }
-.cookie__floating__buttons__button--accept[data-v-d9196c78] {
+.cookie__floating__buttons__button--accept[data-v-5d724482] {
         color: #4caf50;
         -ms-flex: 1 1 auto;
 }
-.cookie__floating__buttons__button--accept[data-v-d9196c78]:hover {
+.cookie__floating__buttons__button--accept[data-v-5d724482]:hover {
           background: #409343;
           color: #fff;
 }
-.cookie__floating__buttons__button--decline[data-v-d9196c78] {
+.cookie__floating__buttons__button--decline[data-v-5d724482] {
         color: #f44336;
         -ms-flex: 1 1 auto;
 }
-.cookie__floating__buttons__button--decline[data-v-d9196c78]:hover {
+.cookie__floating__buttons__button--decline[data-v-5d724482]:hover {
           background: #f21f0f;
           color: #fff;
 }
-.slideFromBottom-enter[data-v-d9196c78], .slideFromBottom-leave-to[data-v-d9196c78] {
+.slideFromBottom-enter[data-v-5d724482], .slideFromBottom-leave-to[data-v-5d724482] {
   transform: translate(0px, 10em);
 }
-.slideFromBottom-enter-to[data-v-d9196c78], .slideFromBottom-leave[data-v-d9196c78] {
+.slideFromBottom-enter-to[data-v-5d724482], .slideFromBottom-leave[data-v-5d724482] {
   transform: translate(0px, 0px);
 }
-.slideFromBottom-enter-active[data-v-d9196c78] {
+.slideFromBottom-enter-active[data-v-5d724482] {
   transition: transform .2s ease-out;
 }
-.slideFromBottom-leave-active[data-v-d9196c78] {
+.slideFromBottom-leave-active[data-v-5d724482] {
   transition: transform .2s ease-in;
 }
-.slideFromTop-enter[data-v-d9196c78], .slideFromTop-leave-to[data-v-d9196c78] {
+.slideFromTop-enter[data-v-5d724482], .slideFromTop-leave-to[data-v-5d724482] {
   transform: translate(0px, -10em);
 }
-.slideFromTop-enter-to[data-v-d9196c78], .slideFromTop-leave[data-v-d9196c78] {
+.slideFromTop-enter-to[data-v-5d724482], .slideFromTop-leave[data-v-5d724482] {
   transform: translate(0px, 0px);
 }
-.slideFromTop-enter-active[data-v-d9196c78] {
+.slideFromTop-enter-active[data-v-5d724482] {
   transition: transform .2s ease-out;
 }
-.slideFromTop-leave-active[data-v-d9196c78] {
+.slideFromTop-leave-active[data-v-5d724482] {
   transition: transform .2s ease-in;
 }
-.fade-enter-active[data-v-d9196c78], .fade-leave-active[data-v-d9196c78] {
+.fade-enter-active[data-v-5d724482], .fade-leave-active[data-v-5d724482] {
   transition: opacity .5s;
 }
-.fade-enter[data-v-d9196c78], .fade-leave-to[data-v-d9196c78] {
+.fade-enter[data-v-5d724482], .fade-leave-to[data-v-5d724482] {
   opacity: 0;
 }
 
