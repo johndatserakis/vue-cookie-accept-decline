@@ -186,7 +186,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     $lighter-grey: #eee;
     $light-grey: #ddd;
     $grey: darken($light-grey, 9%);

@@ -267,7 +267,7 @@
       /* style */
       var __vue_inject_styles__ = undefined;
       /* scoped */
-      var __vue_scope_id__ = "data-v-5d724482";
+      var __vue_scope_id__ = undefined;
       /* module identifier */
       var __vue_module_identifier__ = undefined;
       /* functional template */
