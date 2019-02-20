@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 5.1.1 (2019-02-19)
+
+- Adjusting iife build
+
 ## 5.1.0 (2019-01-07)
 
 - Removing the `scoped` prop from the `style` tags to allow for proper overwrite of styles.
