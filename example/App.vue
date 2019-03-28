@@ -73,7 +73,7 @@
             :type="'floating'"
             :disableDecline="false"
             :transitionName="'slideFromBottom'"
-            :showPostponeButton="true"
+            :showPostponeButton="false"
             @status="cookieStatus"
             @clicked-accept="cookieClickedAccept"
             @clicked-decline="cookieClickedDecline"

@@ -6,7 +6,7 @@ Show a banner with text, a decline button, and an accept button on your page. Re
 
 <p align="left">
   <a href="https://www.npmjs.com/package/vue-cookie-accept-decline"><img src="https://img.shields.io/npm/v/vue-cookie-accept-decline.svg" alt="NPM Version"></a>
-  <a href="https://www.npmjs.com/package/vue-cookie-accept-decline"><img src="https://img.shields.io/npm/dt/vue-cookie-accept-decline.svg" alt="NPM Downloads"></a>
+  <a href="https://www.npmjs.com/package/vue-cookie-accept-decline"><img src="https://img.shields.io/npm/dm/vue-cookie-accept-decline.svg" alt="NPM Downloads"></a>
   <a href="http://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
   <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fpromosis%2Fvue-cookie-accept-decline&text=Check%20out%20vue-cookie-accept-decline%20on%20GitHub&via=promosis">
   <img src="https://img.shields.io/twitter/url/https/github.com/promosis/vue-cookie-accept-decline.svg?style=social" alt="Tweet"></a>
@@ -70,7 +70,7 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
     :type="'floating'"
     :disableDecline="false"
     :transitionName="'slideFromBottom'"
-    :showPostponeButton="true"
+    :showPostponeButton="false"
     @status="cookieStatus"
     @clicked-accept="cookieClickedAccept"
     @clicked-decline="cookieClickedDecline">
@@ -224,11 +224,11 @@ npm run test
 # build demo page
 npm run build:example
 
-# build
-npm run build
+# build library
+npm run build:library
 
-# publish to npm
-npm publish
+# build everything and run tests
+npm run build
 ```
 
 ### Thank You
