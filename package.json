@@ -1,6 +1,6 @@
 {
   "name": "vue-cookie-accept-decline",
-  "version": "5.2.0",
+  "version": "5.2.1",
   "description": "Show a banner with text, a decline button, and an accept button on your page.",
   "author": "John Datserakis <johndatserakis@gmail.com>",
   "license": "MIT",
@@ -25,9 +25,9 @@
   "scripts": {
     "watch": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "npm run test && npm run build:example && npm run build:library",
-    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-navigation-bar.umd.js",
-    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-navigation-bar.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-navigation-bar.min.js",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-cookie-accept-decline.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-cookie-accept-decline.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-cookie-accept-decline.min.js",
     "build:library": "rm -rf ./dist npm run build:unpkg & npm run build:es & npm run build:umd & npm run build:unpkg",
     "build:example": "rm -rf ./docs && cross-env NODE_ENV=production webpack --progress --hide-modules",
     "test": "jest"
