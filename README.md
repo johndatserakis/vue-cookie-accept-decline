@@ -33,9 +33,11 @@ yarn add vue-cookie-accept-decline
 Or you can include it through the browser at the bottom of your page along with the css:
 
 ```html
-<script src="https://unpkg.com/vue-cookie-accept-decline/dist/vue-cookie-accept-decline.min.js"></script>
+<!-- Please note if you're using the browser method you're going to want to adjust the version number as needed. -->
 
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-cookie-accept-decline/dist/vue-cookie-accept-decline.css">
+<script src="https://unpkg.com/vue-cookie-accept-decline@5.2.3/dist/vue-cookie-accept-decline.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-cookie-accept-decline@5.2.3/dist/vue-cookie-accept-decline.css">
 ```
 
 ### About
