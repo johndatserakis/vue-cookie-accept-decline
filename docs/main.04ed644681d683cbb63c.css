@@ -1,0 +1,340 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+html {
+  width: 100%;
+  font-size: 18px;
+  color: #333;
+}
+body {
+  margin: 0;
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+  font-family: 'Noto Sans', sans-serif;
+}
+#app {
+  height: 100%;
+  height: 100vh;
+  width: 100%;
+  line-height: 1.5;
+}
+.promosis-image {
+  max-height: 60px;
+  display: block;
+  margin: 0 auto;
+}
+.code-text {
+  background: #eee;
+  border: 1px solid #ddd;
+  padding: 10px 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+@media (min-width: 992px) {
+.code-text {
+    margin-bottom: 0;
+}
+}
+.btn {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+@keyframes octocat-wave {
+0%, 100% {
+    transform: rotate(0);
+}
+20%, 60% {
+    transform: rotate(-25deg);
+}
+40%, 80% {
+    transform: rotate(10deg);
+}
+}
+@media (max-width: 500px) {
+.github-corner:hover .octo-arm {
+    animation: none;
+}
+.github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+}
+
+@charset "UTF-8";
+.cookie__bar {
+  -ms-overflow-style: none;
+  position: fixed;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 9999;
+  width: 100%;
+  background: #eee;
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 -4px 4px rgba(198, 198, 198, 0.05);
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;
+  line-height: 1.5;
+}
+@media (min-width: 768px) {
+.cookie__bar {
+      flex-direction: row;
+}
+}
+.cookie__bar--bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.cookie__bar--top {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.cookie__bar__postpone-button {
+    margin-right: auto;
+    -ms-flex: 1 1 auto;
+}
+@media (min-width: 768px) {
+.cookie__bar__postpone-button {
+        margin-right: 10px;
+}
+}
+.cookie__bar__postpone-button:hover {
+      opacity: 0.8;
+      cursor: pointer;
+}
+.cookie__bar__content {
+    margin-right: 0;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    max-height: 103px;
+    overflow: auto;
+    width: 100%;
+    -ms-flex: 1 1 auto;
+}
+@media (min-width: 768px) {
+.cookie__bar__content {
+        margin-right: auto;
+        margin-bottom: 0;
+}
+}
+.cookie__bar__buttons {
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+@media (min-width: 768px) {
+.cookie__bar__buttons {
+        flex-direction: row;
+        width: auto;
+}
+}
+.cookie__bar__buttons__button {
+      display: inline-block;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      user-select: none;
+      border: 1px solid transparent;
+      padding: 0.375rem 0.75rem;
+      line-height: 1.5;
+      border-radius: 3px;
+      font-size: 0.9rem;
+}
+.cookie__bar__buttons__button:hover {
+        cursor: pointer;
+        text-decoration: none;
+}
+.cookie__bar__buttons__button--accept {
+        -ms-flex: 1 1 auto;
+        background: #4caf50;
+        background: linear-gradient(#5cb860, #4caf50);
+        color: #fff;
+}
+.cookie__bar__buttons__button--accept:hover {
+          background: #409343;
+}
+.cookie__bar__buttons__button--decline {
+        -ms-flex: 1 1 auto;
+        background: #f44336;
+        background: linear-gradient(#f55a4e, #f44336);
+        color: #fff;
+        margin-bottom: 10px;
+}
+.cookie__bar__buttons__button--decline:hover {
+          background: #f21f0f;
+}
+@media (min-width: 768px) {
+.cookie__bar__buttons__button--decline {
+            margin-bottom: 0;
+            margin-right: 10px;
+}
+}
+.cookie__floating {
+  -ms-overflow-style: none;
+  position: fixed;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 9999;
+  width: 90%;
+  background: #fafafa;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(198, 198, 198, 0.3);
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;
+  line-height: 1.5;
+  border-radius: 6px;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+.cookie__floating {
+      max-width: 300px;
+}
+}
+@media (min-width: 768px) {
+.cookie__floating--bottom-left {
+      bottom: 20px;
+      left: 20px;
+      right: auto;
+      margin: 0 0;
+}
+}
+@media (min-width: 768px) {
+.cookie__floating--bottom-right {
+      bottom: 20px;
+      right: 20px;
+      left: auto;
+      margin: 0 0;
+}
+}
+@media (min-width: 768px) {
+.cookie__floating--top-right {
+      top: 20px;
+      bottom: auto;
+      right: 20px;
+      left: auto;
+      margin: 0 0;
+}
+}
+@media (min-width: 768px) {
+.cookie__floating--top-left {
+      top: 20px;
+      bottom: auto;
+      right: auto;
+      left: 20px;
+      margin: 0 0;
+}
+}
+.cookie__floating__postpone-button {
+    display: inline-flex;
+    padding: 5px 0 0 20px;
+    margin-bottom: -10px;
+    margin-right: auto;
+}
+.cookie__floating__postpone-button:hover {
+      opacity: 0.8;
+      cursor: pointer;
+}
+.cookie__floating__content {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+    padding: 15px 20px;
+    max-height: 105px;
+    overflow: auto;
+}
+@media (min-width: 768px) {
+.cookie__floating__content {
+        margin-bottom: 10px;
+}
+}
+.cookie__floating__buttons {
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+}
+.cookie__floating__buttons__button {
+      background-color: #eee;
+      font-weight: bold;
+      font-size: 0.90rem;
+      width: 100%;
+      min-height: 40px;
+      white-space: nowrap;
+      user-select: none;
+      border-bottom: 1px solid #ddd;
+      border-top: 1px solid #ddd;
+      border-left: none;
+      border-right: none;
+      padding: 0.375rem 0.75rem;
+}
+.cookie__floating__buttons__button:first-child {
+        border-right: 1px solid #ddd;
+}
+.cookie__floating__buttons__button:hover {
+        cursor: pointer;
+        text-decoration: none;
+}
+.cookie__floating__buttons__button--accept {
+        color: #4caf50;
+        -ms-flex: 1 1 auto;
+}
+.cookie__floating__buttons__button--accept:hover {
+          background: #409343;
+          color: #fff;
+}
+.cookie__floating__buttons__button--decline {
+        color: #f44336;
+        -ms-flex: 1 1 auto;
+}
+.cookie__floating__buttons__button--decline:hover {
+          background: #f21f0f;
+          color: #fff;
+}
+.slideFromBottom-enter, .slideFromBottom-leave-to {
+  transform: translate(0px, 10em);
+}
+.slideFromBottom-enter-to, .slideFromBottom-leave {
+  transform: translate(0px, 0px);
+}
+.slideFromBottom-enter-active {
+  transition: transform .2s ease-out;
+}
+.slideFromBottom-leave-active {
+  transition: transform .2s ease-in;
+}
+.slideFromTop-enter, .slideFromTop-leave-to {
+  transform: translate(0px, -10em);
+}
+.slideFromTop-enter-to, .slideFromTop-leave {
+  transform: translate(0px, 0px);
+}
+.slideFromTop-enter-active {
+  transition: transform .2s ease-out;
+}
+.slideFromTop-leave-active {
+  transition: transform .2s ease-in;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
