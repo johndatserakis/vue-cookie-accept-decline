@@ -1,32 +1,32 @@
 <template>
     <transition appear :name="transitionName">
         <div class="cookie" :class="['cookie__' + type, 'cookie__' + type + '--' + position]" v-if="isOpen" :id="elementId">
-
-            <div v-if="showPostponeButton === true" @click="postpone" :class="'cookie__' + type + '__postpone-button'" title="Close">
-                <slot name="postponeContent">
-                    &times;
-                </slot>
-            </div>
-
-            <div :class="'cookie__' + type + '__content'">
-                <slot name="message">
-                    We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a>
-                </slot>
-            </div>
-
-            <div :class="'cookie__' + type + '__buttons'">
-                <button v-if="disableDecline === false" @click="decline" :class="['cookie__' + type + '__buttons__button', 'cookie__' + type + '__buttons__button--decline']">
-                    <slot name="declineContent">
-                        Opt Out
+            <div :class="'cookie__' + type + '__wrap'">
+                <div v-if="showPostponeButton === true" @click="postpone" :class="'cookie__' + type + '__postpone-button'" title="Close">
+                    <slot name="postponeContent">
+                        &times;
                     </slot>
-                </button>
-                <button @click="accept" :class="['cookie__' + type + '__buttons__button', 'cookie__' + type + '__buttons__button--accept']">
-                    <slot name="acceptContent">
-                        Got It!
-                    </slot>
-                </button>
-            </div>
+                </div>
 
+                <div :class="'cookie__' + type + '__content'">
+                    <slot name="message">
+                        We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn More...</a>
+                    </slot>
+                </div>
+
+                <div :class="'cookie__' + type + '__buttons'">
+                    <button v-if="disableDecline === false" @click="decline" :class="['cookie__' + type + '__buttons__button', 'cookie__' + type + '__buttons__button--decline']">
+                        <slot name="declineContent">
+                            Opt Out
+                        </slot>
+                    </button>
+                    <button @click="accept" :class="['cookie__' + type + '__buttons__button', 'cookie__' + type + '__buttons__button--accept']">
+                        <slot name="acceptContent">
+                            Got It!
+                        </slot>
+                    </button>
+                </div>
+            </div>
         </div>
     </transition>
 </template>
