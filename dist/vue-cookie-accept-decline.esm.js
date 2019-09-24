@@ -258,62 +258,18 @@ var __vue_render__ = function() {
             attrs: { id: _vm.elementId }
           },
           [
-            _vm.showPostponeButton === true
-              ? _c(
-                  "div",
-                  {
-                    class: "cookie__" + _vm.type + "__postpone-button",
-                    attrs: { title: "Close" },
-                    on: { click: _vm.postpone }
-                  },
-                  [
-                    _vm._t("postponeContent", [
-                      _vm._v("\n                ×\n            ")
-                    ])
-                  ],
-                  2
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _c(
-              "div",
-              { class: "cookie__" + _vm.type + "__content" },
-              [
-                _vm._t("message", [
-                  _vm._v(
-                    "\n                We use cookies to ensure you get the best experience on our website. "
-                  ),
-                  _c(
-                    "a",
-                    {
-                      attrs: {
-                        href: "https://cookiesandyou.com/",
-                        target: "_blank"
-                      }
-                    },
-                    [_vm._v("Learn More...")]
-                  )
-                ])
-              ],
-              2
-            ),
-            _vm._v(" "),
-            _c("div", { class: "cookie__" + _vm.type + "__buttons" }, [
-              _vm.disableDecline === false
+            _c("div", { class: "cookie__" + _vm.type + "__wrap" }, [
+              _vm.showPostponeButton === true
                 ? _c(
-                    "button",
+                    "div",
                     {
-                      class: [
-                        "cookie__" + _vm.type + "__buttons__button",
-                        "cookie__" + _vm.type + "__buttons__button--decline"
-                      ],
-                      on: { click: _vm.decline }
+                      class: "cookie__" + _vm.type + "__postpone-button",
+                      attrs: { title: "Close" },
+                      on: { click: _vm.postpone }
                     },
                     [
-                      _vm._t("declineContent", [
-                        _vm._v(
-                          "\n                    Opt Out\n                "
-                        )
+                      _vm._t("postponeContent", [
+                        _vm._v("\n                    ×\n                ")
                       ])
                     ],
                     2
@@ -321,21 +277,69 @@ var __vue_render__ = function() {
                 : _vm._e(),
               _vm._v(" "),
               _c(
-                "button",
-                {
-                  class: [
-                    "cookie__" + _vm.type + "__buttons__button",
-                    "cookie__" + _vm.type + "__buttons__button--accept"
-                  ],
-                  on: { click: _vm.accept }
-                },
+                "div",
+                { class: "cookie__" + _vm.type + "__content" },
                 [
-                  _vm._t("acceptContent", [
-                    _vm._v("\n                    Got It!\n                ")
+                  _vm._t("message", [
+                    _vm._v(
+                      "\n                    We use cookies to ensure you get the best experience on our website. "
+                    ),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href: "https://cookiesandyou.com/",
+                          target: "_blank"
+                        }
+                      },
+                      [_vm._v("Learn More...")]
+                    )
                   ])
                 ],
                 2
-              )
+              ),
+              _vm._v(" "),
+              _c("div", { class: "cookie__" + _vm.type + "__buttons" }, [
+                _vm.disableDecline === false
+                  ? _c(
+                      "button",
+                      {
+                        class: [
+                          "cookie__" + _vm.type + "__buttons__button",
+                          "cookie__" + _vm.type + "__buttons__button--decline"
+                        ],
+                        on: { click: _vm.decline }
+                      },
+                      [
+                        _vm._t("declineContent", [
+                          _vm._v(
+                            "\n                        Opt Out\n                    "
+                          )
+                        ])
+                      ],
+                      2
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    class: [
+                      "cookie__" + _vm.type + "__buttons__button",
+                      "cookie__" + _vm.type + "__buttons__button--accept"
+                    ],
+                    on: { click: _vm.accept }
+                  },
+                  [
+                    _vm._t("acceptContent", [
+                      _vm._v(
+                        "\n                        Got It!\n                    "
+                      )
+                    ])
+                  ],
+                  2
+                )
+              ])
             ])
           ]
         )
