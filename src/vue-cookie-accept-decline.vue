@@ -210,20 +210,13 @@ export default {
             width: 100%;
             background: $lighter-grey;
             padding: 20px 20px;
-            display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-direction: column;
             box-shadow: 0 -4px 4px rgba($grey, 0.05);
             border-top: 1px solid $light-grey;
             border-bottom: 1px solid $light-grey;
             font-size: 1rem;
             font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, “Fira Sans”, “Droid Sans”, “Helvetica Neue”, Arial, sans-serif;
             line-height: 1.5;
-
-            @media (min-width: 768px) {
-                flex-direction: row;
-            }
 
             &--bottom {
                 bottom: 0;
@@ -235,6 +228,17 @@ export default {
                 top: 0;
                 left: 0;
                 right: 0;
+            }
+            
+            &__wrap {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
+                width: 100%;
+
+                @media (min-width: 768px) {
+                    flex-direction: row;
+                }
             }
 
             &__postpone-button {
