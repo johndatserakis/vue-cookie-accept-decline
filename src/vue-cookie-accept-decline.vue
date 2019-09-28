@@ -229,11 +229,12 @@ export default {
                 left: 0;
                 right: 0;
             }
-            
+
             &__wrap {
                 display: flex;
                 justify-content: space-between;
                 flex-direction: column;
+                align-items: center;
                 width: 100%;
 
                 @media (min-width: 768px) {
