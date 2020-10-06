@@ -111,6 +111,7 @@ Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
 | disableDecline | boolean | no       | false           | true, false                         | If true, the 'opt out' button is not shown |
 | transitionName | string  | no       | slideFromBottom | slideFromBottom, slideFromTop, fade | Banner animation type    |
 | showPostponeButton | boolean  | no  | false           | true, false                         | Optionally show a close button that allows the user to postpone selecting an option. |
+| forceCookies | boolean  | no  | false           | true, false                         | Optionally force cookies storage |
 
 
 ### Events
