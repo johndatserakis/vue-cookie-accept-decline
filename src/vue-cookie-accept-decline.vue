@@ -75,7 +75,7 @@ export default {
             type: Boolean,
             default: false
         },
-        
+
         forceCookies: {
             type: Boolean,
             default: false
@@ -115,12 +115,12 @@ export default {
             this.$emit('status', visitedType)
         },
         checkLocalStorageFunctionality () {
-        
-            if(this.forceCookies === true) {
+
+            if (this.forceCookies) {
                 this.supportsLocalStorage = false
-                return ;
+                return;
             }
-        
+
             // Check for availability of localStorage
             try {
                 const test = '__vue-cookie-accept-decline-check-localStorage'

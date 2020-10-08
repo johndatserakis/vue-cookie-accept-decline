@@ -35,9 +35,9 @@ Or you can include it through the browser at the bottom of your page along with 
 ```html
 <!-- Please note if you're using the browser method you're going to want to adjust the version number as needed. -->
 
-<script src="https://unpkg.com/vue-cookie-accept-decline@5.2.3/dist/vue-cookie-accept-decline.min.js"></script>
+<script src="https://unpkg.com/vue-cookie-accept-decline@5.4.0/dist/vue-cookie-accept-decline.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-cookie-accept-decline@5.2.3/dist/vue-cookie-accept-decline.css">
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-cookie-accept-decline@5.4.0/dist/vue-cookie-accept-decline.css">
 ```
 
 ### About

@@ -46,6 +46,11 @@
             showPostponeButton: {
                 type: Boolean,
                 default: false
+            },
+
+            forceCookies: {
+                type: Boolean,
+                default: false
             }
         },
         data: function data () {
@@ -82,6 +87,12 @@
                 this.$emit('status', visitedType);
             },
             checkLocalStorageFunctionality: function checkLocalStorageFunctionality () {
+
+                if (this.forceCookies) {
+                    this.supportsLocalStorage = false;
+                    return;
+                }
+
                 // Check for availability of localStorage
                 try {
                     var test = '__vue-cookie-accept-decline-check-localStorage';
