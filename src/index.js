@@ -1,27 +1,24 @@
 // Import vue component
 import component from './vue-cookie-accept-decline.vue';
 
-// install function executed by Vue.use()
-export function install(Vue) {
-	if (install.installed) return;
-	install.installed = true;
-	Vue.component('VueCookieAcceptDecline', component);
+export function install(app) {
+  if (install.installed) return;
+
+  install.installed = true;
+  app.component('VueCookieAcceptDecline', component);
 }
 
-// Create module definition for Vue.use()
-const plugin = {
-	install,
-};
+const plugin = { install };
 
-// To auto-install when vue is found
+// To auto-install when Vue is found
 let GlobalVue = null;
 if (typeof window !== 'undefined') {
-	GlobalVue = window.Vue;
+  GlobalVue = window.Vue;
 } else if (typeof global !== 'undefined') {
-	GlobalVue = global.Vue;
+  GlobalVue = global.Vue;
 }
 if (GlobalVue) {
-	GlobalVue.use(plugin);
+  GlobalVue.use(plugin);
 }
 
 // To allow use as module (npm/webpack/etc.) export component
