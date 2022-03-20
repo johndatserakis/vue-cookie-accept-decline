@@ -1,10 +1,9 @@
-import Vue from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import VueCookieAcceptDecline from '../src/index.js';
+import App from './App.vue';
 
-import VueCookieAcceptDecline from '../src/index.js'
-Vue.component('vue-cookie-accept-decline', VueCookieAcceptDecline)
+const app = createApp(App);
 
-new Vue({
-  el: '#app',
-  render: h => h(App)
-})
+app.component('vue-cookie-accept-decline', VueCookieAcceptDecline);
+
+app.mount('#app');

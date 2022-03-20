@@ -1,107 +1,119 @@
-const path = require('path');
+// This webpack config is used to serve the example app in ./example
+
+const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const env = process.env.NODE_ENV || 'development';
+const webpack = require('webpack');
 
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-
-const config = {
-    entry: [
-        path.resolve(__dirname, 'example', 'main.js')
-    ],
-    output: {
-        path: path.resolve(__dirname, './docs'),
-        publicPath: (process.env.NODE_ENV === 'development') ? '/' : './',
-        filename: (env === 'development') ? '[name].[hash].js' : '[name].[contenthash].js'
-    },
-    optimization: {
-        splitChunks: {
-            cacheGroups: {
-                shared: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: "vendor",
-                    enforce: true,
-                    chunks: "all"
-                }
-            }
+module.exports = {
+  entry: './example/main.js',
+  output: {
+    filename: 'build.js',
+    path: path.resolve(__dirname, './docs'),
+    publicPath: process.env.NODE_ENV === 'development' ? '/' : '/vue-cookie-accept-decline/',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+        ],
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+      {
+        test: /\.sass$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          'css-loader',
+          'sass-loader?indentedSyntax',
+        ],
+      },
+      {
+        loader: 'vue-loader',
+        test: /\.vue$/,
+      },
+      {
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        test: /\.js$/,
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]',
         },
-        minimizer: (env === 'development') ? [
-            new OptimizeCSSAssetsPlugin(),
-            new TerserPlugin()
-        ] : undefined,
-    },
-    mode: env,
-    devtool: (env === 'development') ? 'cheap-module-eval-source-map' : undefined,
-    devServer: {
-        historyApiFallback: true
-    },
-    module: {
-        rules: [
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader'
-            },
-            {
-                test: /\.m?js$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
-            },
-            {
-                test: /\.(scss|css)$/,
-                use: [
-                    // For hot reload in dev https://github.com/webpack-contrib/mini-css-extract-plugin/issues/34
-                    (env === 'development') ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader'
-                ],
-            },
-            {
-                test: /\.(png|jpg|gif|otf|svg)$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {}
-                }]
-            }
-        ]
-    },
-    plugins: [
-        new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: ['docs']
-        }),
-        new VueLoaderPlugin(),
-        new HtmlWebpackPlugin({
-            title: 'vue-cookie-accept-decline',
-            template: path.resolve(__dirname, 'example', 'index.html'),
-            inject: true,
-            minify: (env === 'development') ? undefined : {
-                removeComments: true,
-                collapseWhitespace: true,
-                removeAttributeQuotes: true,
-            }
-        }),
-        new MiniCssExtractPlugin({
-            filename: (env === 'development') ? '[name].css' : '[name].[hash].css',
-            chunkFilename: (env === 'development') ? '[id].css' : '[id].[hash].css',
-        }),
-        // new CopyWebpackPlugin([
-        //     { from: path.resolve(__dirname, 'src', 'assets', 'images', 'favicon.png'), to: './favicon.png' }
-        // ])
+      },
     ],
-    resolve: {
-        extensions: ['.js', '.json'],
-        alias: {
-            '@': path.resolve(__dirname, 'example')
-        }
+  },
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.esm-bundler.js',
     },
-}
+    extensions: ['*', '.js', '.vue', '.json'],
+  },
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true,
+    overlay: true,
+  },
+  performance: {
+    hints: false,
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        parallel: 4,
+        terserOptions: {
+          compress: {
+            warnings: false,
+          },
+          warnings: false,
+        },
+      }),
+    ],
+  },
+  devtool: '#eval-source-map',
+  plugins: [
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+    }),
+    new HtmlWebpackPlugin({
+      title: 'vue-cookie-accept-decline',
+      template: './example/index.html',
+    }),
+  ],
+};
 
-module.exports = config
+if (process.env.NODE_ENV === 'production') {
+  module.exports.devtool = '#source-map';
+  // http://vue-loader.vuejs.org/en/workflow/production.html
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"',
+      },
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    }),
+  ]);
+}
