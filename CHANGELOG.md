@@ -1,5 +1,9 @@
 # CHANGELOG.md
 
+## 6.1.0 (2022-08-29)
+
+- Update install method to avoid `.use` issue. Thank you @queengooborg.
+
 ## 6.0.3
 
 - Upgrade package to support Vue 3. Vue 2 support can be found at `v5.4.0`.

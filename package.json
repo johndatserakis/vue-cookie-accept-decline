@@ -83,5 +83,5 @@
   },
   "sideEffects": false,
   "unpkg": "dist/vue-cookie-accept-decline.min.js",
-  "version": "6.0.3"
+  "version": "6.1.0"
 }

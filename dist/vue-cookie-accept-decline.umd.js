@@ -285,7 +285,7 @@
   } else if (typeof global !== 'undefined') {
     GlobalVue = global.Vue;
   }
-  if (GlobalVue) {
+  if (GlobalVue && 'use' in GlobalVue) {
     GlobalVue.use(plugin);
   }
 
